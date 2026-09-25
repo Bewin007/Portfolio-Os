@@ -31,7 +31,7 @@ export const RecruiterView: React.FC<RecruiterViewProps> = ({ onSwitchToStory, o
 
   const handleDownloadResume = () => {
     sounds.playConfirm();
-    window.open('/Resume.pdf', '_blank');
+    window.open(`${import.meta.env.BASE_URL}Resume.pdf`, '_blank');
   };
 
   const featuredProjects = projectArchive.filter((p) => p.featured);
