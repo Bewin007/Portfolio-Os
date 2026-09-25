@@ -83,11 +83,11 @@ export const JourneyTimeline: React.FC<JourneyTimelineProps> = ({ onOpenCaseStud
 
       {/* Main Scrollable Timeline Layout */}
       <div className="relative">
-        {/* Continuous Vertical Glowing Timeline Center Line */}
-        <div className="absolute left-4 sm:left-1/2 top-4 bottom-10 w-[2px] -translate-x-1/2 bg-gradient-to-b from-cyan-500/80 via-purple-500/50 to-emerald-500/80 pointer-events-none hidden sm:block" />
+        {/* Continuous Vertical Glowing Timeline: Left rail on < lg, Centered on lg+ */}
+        <div className="absolute left-4 sm:left-6 lg:left-1/2 top-4 bottom-10 w-[2px] -translate-x-1/2 bg-gradient-to-b from-cyan-500/80 via-purple-500/50 to-emerald-500/80 pointer-events-none block" />
 
         {/* Chapters Stack */}
-        <div className="space-y-24 sm:space-y-36">
+        <div className="space-y-20 sm:space-y-28 lg:space-y-36">
           {journeyChapters.map((chapter, idx) => {
             const isEven = idx % 2 === 0;
 
@@ -98,22 +98,22 @@ export const JourneyTimeline: React.FC<JourneyTimelineProps> = ({ onOpenCaseStud
                 className="relative scroll-mt-36"
                 onMouseEnter={() => setActiveChapterId(chapter.id)}
               >
-                {/* Center Node Marker (Desktop) */}
-                <div className="hidden sm:flex absolute left-1/2 -translate-x-1/2 -top-3 z-10 items-center justify-center">
-                  <div className="relative flex items-center justify-center w-10 h-10 rounded-full bg-neutral-950 border-2 border-cyan-400/80 shadow-[0_0_20px_rgba(0,240,255,0.4)]">
+                {/* Node Marker: Left rail on < lg, Centered on lg+ */}
+                <div className="flex absolute left-4 sm:left-6 lg:left-1/2 -translate-x-1/2 top-1 lg:-top-3 z-10 items-center justify-center">
+                  <div className="relative flex items-center justify-center w-8 h-8 sm:w-10 sm:h-10 rounded-full bg-neutral-950 border-2 border-cyan-400/80 shadow-[0_0_20px_rgba(0,240,255,0.4)]">
                     {getChapterIcon(chapter.visualTheme.diagramType)}
                   </div>
                 </div>
 
-                {/* Chapter Container: Alternating Layout */}
-                <div className={`grid grid-cols-1 lg:grid-cols-12 gap-8 items-start`}>
+                {/* Chapter Container: Left-padded on < lg, Alternating Grid on lg+ */}
+                <div className="pl-8 sm:pl-12 lg:pl-0 grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
                   {/* Left Column (Meta & Story) */}
                   <motion.div
-                    initial={{ opacity: 0, x: isEven ? -30 : 30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className={`lg:col-span-6 ${isEven ? 'lg:pr-8' : 'lg:order-2 lg:pl-8'}`}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
+                    className={`lg:col-span-6 ${isEven ? 'lg:pr-10' : 'lg:order-2 lg:pl-10'}`}
                   >
                     {/* Chapter Header Pill */}
                     <div className="flex items-center gap-2 mb-3">
@@ -181,11 +181,11 @@ export const JourneyTimeline: React.FC<JourneyTimelineProps> = ({ onOpenCaseStud
 
                   {/* Right Column (Visual Composition: What Was Built & Tech Node Visualization) */}
                   <motion.div
-                    initial={{ opacity: 0, x: isEven ? 30 : -30 }}
-                    whileInView={{ opacity: 1, x: 0 }}
-                    viewport={{ once: true, margin: '-100px' }}
-                    transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
-                    className={`lg:col-span-6 ${isEven ? 'lg:pl-8' : 'lg:order-1 lg:pr-8'}`}
+                    initial={{ opacity: 0, y: 24 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true, margin: '-80px' }}
+                    transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1], delay: 0.1 }}
+                    className={`lg:col-span-6 ${isEven ? 'lg:pl-10' : 'lg:order-1 lg:pr-10'}`}
                   >
                     {/* Visual Card: Artifacts / What Was Built */}
                     <div className="space-y-4">
