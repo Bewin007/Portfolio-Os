@@ -138,8 +138,8 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
 
       case 'resume':
         sounds.playConfirm();
-        window.open('/Resume.pdf', '_blank');
-        output = 'Opening /Resume.pdf in a new tab...';
+        window.open(`${import.meta.env.BASE_URL}Resume.pdf`, '_blank');
+        output = 'Opening Resume.pdf in a new tab...';
         break;
 
       case 'recruiter':
