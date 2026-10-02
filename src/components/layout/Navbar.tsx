@@ -1,13 +1,25 @@
 import React, { useState, useEffect } from 'react';
 import { ViewMode } from '../../types';
 import { sounds } from '../../utils/audio';
-import { Volume2, VolumeX, Terminal, Zap, Briefcase, Compass } from 'lucide-react';
+import { GithubIcon } from '../common/BrandIcons';
+import { 
+  Volume2, 
+  VolumeX, 
+  Terminal, 
+  Briefcase, 
+  Compass, 
+  Download, 
+  Menu, 
+  X, 
+  ArrowRight,
+  Sparkles
+} from 'lucide-react';
 
 interface NavbarProps {
   viewMode: ViewMode;
   onToggleViewMode: (mode: ViewMode) => void;
   onOpenTerminal: () => void;
-  onStartTour: () => void;
+  onStartTour?: () => void;
   activeSection: string;
 }
 
@@ -15,12 +27,12 @@ export const Navbar: React.FC<NavbarProps> = ({
   viewMode,
   onToggleViewMode,
   onOpenTerminal,
-  onStartTour,
   activeSection,
 }) => {
   const [scrollProgress, setScrollProgress] = useState(0);
   const [isMuted, setIsMuted] = useState(sounds.getMuted());
   const [isScrolled, setIsScrolled] = useState(false);
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -28,7 +40,7 @@ export const Navbar: React.FC<NavbarProps> = ({
       const currentScroll = window.scrollY;
       const progress = totalScroll > 0 ? (currentScroll / totalScroll) * 100 : 0;
       setScrollProgress(progress);
-      setIsScrolled(currentScroll > 40);
+      setIsScrolled(currentScroll > 30);
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
@@ -40,162 +52,347 @@ export const Navbar: React.FC<NavbarProps> = ({
     setIsMuted(newMuted);
   };
 
-  const navLinks = [
-    { id: 'hero', label: '/identity', anchor: '#hero' },
-    { id: 'journey', label: '/journey', anchor: '#journey' },
-    { id: 'dna', label: '/dna', anchor: '#dna' },
-    { id: 'projects', label: '/work', anchor: '#projects' },
-    { id: 'experiments', label: '/experiments', anchor: '#experiments' },
-    { id: 'now', label: '/now', anchor: '#now' },
-    { id: 'contact', label: '/contact', anchor: '#contact' },
+  const handleDownloadResume = () => {
+    sounds.playConfirm();
+    window.open(`${import.meta.env.BASE_URL}Resume.pdf`, '_blank');
+  };
+
+  // Recruiter Mode Navigation Links
+  const recruiterLinks = [
+    { id: 'projects', label: 'Work', anchor: '#projects' },
+    { id: 'experience', label: 'Experience', anchor: '#experience' },
+    { id: 'contact', label: 'Contact', anchor: '#contact' },
   ];
+
+  // Story Mode Navigation Links
+  const storyLinks = [
+    { id: 'hero', label: 'Overview', anchor: '#hero' },
+    { id: 'journey', label: 'Journey', anchor: '#journey' },
+    { id: 'dna', label: 'DNA', anchor: '#dna' },
+    { id: 'projects', label: 'Archive', anchor: '#projects' },
+    { id: 'now', label: 'Current State', anchor: '#now' },
+    { id: 'contact', label: 'Contact', anchor: '#contact' },
+  ];
+
+  const handleLinkClick = (anchor: string) => {
+    sounds.playBlip(750, 0.02);
+    setIsMobileMenuOpen(false);
+    const el = document.querySelector(anchor);
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
 
   return (
     <>
       {/* Top Global Scroll Progress Bar */}
-      <div className="fixed top-0 left-0 right-0 h-[2px] bg-neutral-900 z-50">
+      <div className="fixed top-0 left-0 right-0 h-[2px] bg-neutral-900 z-50 pointer-events-none">
         <div
-          className="h-full bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500 transition-all duration-150 ease-out shadow-[0_0_8px_rgba(0,240,255,0.8)]"
+          className={`h-full transition-all duration-150 ease-out shadow-sm ${
+            viewMode === 'recruiter'
+              ? 'bg-gradient-to-r from-emerald-500 via-cyan-400 to-teal-400 shadow-[0_0_8px_rgba(16,185,129,0.7)]'
+              : 'bg-gradient-to-r from-cyan-500 via-indigo-500 to-purple-500 shadow-[0_0_8px_rgba(0,240,255,0.7)]'
+          }`}
           style={{ width: `${scrollProgress}%` }}
         />
       </div>
 
-      {/* Floating Header */}
-      <header
-        className={`fixed top-4 left-0 right-0 z-40 px-3 sm:px-6 transition-all duration-300 flex justify-center`}
-      >
+      {/* Floating Header Navbar */}
+      <header className="fixed top-3 left-0 right-0 z-40 px-3 sm:px-6 flex justify-center">
         <div
-          className={`w-full max-w-7xl flex items-center justify-between px-3.5 sm:px-6 py-2.5 rounded-2xl transition-all duration-300 ${
+          className={`w-full max-w-7xl flex items-center justify-between px-4 sm:px-6 py-2.5 rounded-2xl transition-all duration-300 ${
             isScrolled
-              ? 'glass-panel shadow-2xl shadow-cyan-950/20 bg-neutral-950/80 backdrop-blur-xl border border-white/10'
-              : 'bg-neutral-950/40 backdrop-blur-md border border-white/5'
+              ? 'bg-neutral-950/90 backdrop-blur-xl border border-white/10 shadow-2xl shadow-black/40'
+              : 'bg-neutral-950/60 backdrop-blur-md border border-white/5'
           }`}
         >
-          {/* Logo / OS Identity */}
+          {/* Left: Brand Identity */}
           <div className="flex items-center gap-3">
-            <a
-              href="#hero"
-              onClick={() => sounds.playBlip(900, 0.03)}
-              className="flex items-center gap-2 group cursor-pointer"
+            <button
+              onClick={() => {
+                sounds.playBlip(900, 0.03);
+                window.scrollTo({ top: 0, behavior: 'smooth' });
+              }}
+              className="flex items-center gap-2 group text-left"
             >
-              <div className="relative w-6 h-6 rounded-md bg-gradient-to-br from-cyan-500/20 to-purple-500/20 border border-cyan-500/40 flex items-center justify-center group-hover:border-cyan-400 transition-colors">
-                <span className="text-cyan-400 font-mono text-xs font-bold">B</span>
-                <span className="absolute -top-0.5 -right-0.5 w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              <div
+                className={`w-7 h-7 rounded-lg border flex items-center justify-center font-mono text-xs font-bold transition-all ${
+                  viewMode === 'recruiter'
+                    ? 'bg-emerald-500/10 border-emerald-500/40 text-emerald-400 group-hover:border-emerald-300'
+                    : 'bg-cyan-500/10 border-cyan-500/40 text-cyan-400 group-hover:border-cyan-300'
+                }`}
+              >
+                B
               </div>
               <div className="flex flex-col">
-                <span className="font-mono text-xs font-semibold tracking-wider text-neutral-200 group-hover:text-cyan-300 transition-colors">
-                  BEWIN<span className="text-cyan-400">.OS</span>
+                <span className="font-display text-sm font-bold tracking-tight text-white group-hover:text-cyan-300 transition-colors">
+                  BEWIN FELIX
                 </span>
-                <span className="font-mono text-[9px] text-neutral-400 tracking-tight hidden sm:inline">
-                  KERNEL ONLINE
+                <span className="font-mono text-[9px] text-neutral-400 leading-none">
+                  {viewMode === 'recruiter' ? 'Specialist Programmer' : 'BEWIN.OS KERNEL'}
                 </span>
               </div>
-            </a>
+            </button>
           </div>
 
-          {/* Desktop Nav Links */}
-          {viewMode === 'story' && (
-            <nav className="hidden lg:flex items-center gap-1 bg-neutral-900/60 p-1 rounded-xl border border-white/5">
-              {navLinks.map((link) => {
-                const isActive = activeSection === link.id;
-                return (
-                  <a
-                    key={link.id}
-                    href={link.anchor}
-                    onClick={() => sounds.playBlip(750, 0.02)}
-                    className={`px-3 py-1 text-xs font-mono rounded-lg transition-all ${
-                      isActive
-                        ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 shadow-[0_0_10px_rgba(0,240,255,0.15)] font-medium'
-                        : 'text-neutral-400 hover:text-neutral-200 hover:bg-neutral-800/40'
-                    }`}
-                  >
-                    {link.label}
-                  </a>
-                );
-              })}
-            </nav>
-          )}
+          {/* Desktop Center Navigation Links */}
+          <nav className="hidden lg:flex items-center gap-1 bg-neutral-900/60 p-1 rounded-xl border border-white/5">
+            {viewMode === 'recruiter' ? (
+              <>
+                {recruiterLinks.map((link) => {
+                  const isActive = activeSection === link.id;
+                  return (
+                    <button
+                      key={link.id}
+                      onClick={() => handleLinkClick(link.anchor)}
+                      className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-all ${
+                        isActive
+                          ? 'text-cyan-300 bg-neutral-800 border border-cyan-500/30 font-medium'
+                          : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
+                      }`}
+                    >
+                      {link.label}
+                    </button>
+                  );
+                })}
+                <button
+                  onClick={() => {
+                    sounds.playConfirm();
+                    onToggleViewMode('story');
+                  }}
+                  className="px-3 py-1.5 text-xs font-mono rounded-lg text-purple-300 hover:text-purple-200 hover:bg-purple-950/40 border border-transparent hover:border-purple-500/20 transition-all flex items-center gap-1.5"
+                >
+                  <Compass className="w-3 h-3 text-purple-400" />
+                  <span>Story</span>
+                </button>
+              </>
+            ) : (
+              <>
+                {storyLinks.map((link) => {
+                  const isActive = activeSection === link.id;
+                  return (
+                    <button
+                      key={link.id}
+                      onClick={() => handleLinkClick(link.anchor)}
+                      className={`px-3 py-1.5 text-xs font-mono rounded-lg transition-all ${
+                        isActive
+                          ? 'text-cyan-300 bg-cyan-950/60 border border-cyan-500/30 font-medium'
+                          : 'text-neutral-400 hover:text-white hover:bg-neutral-800/50'
+                      }`}
+                    >
+                      /{link.id}
+                    </button>
+                  );
+                })}
+              </>
+            )}
+          </nav>
 
-          {/* Right Action Tools: Story/Recruiter Toggle, Quick Tour, Terminal, Audio */}
-          <div className="flex items-center gap-1.5 sm:gap-2">
-            {/* View Mode Pill Toggle */}
-            <div className="flex items-center bg-neutral-900/80 p-0.5 sm:p-1 rounded-xl border border-white/10 text-[11px] font-mono">
-              <button
-                onClick={() => {
-                  sounds.playBlip(700, 0.03);
-                  onToggleViewMode('story');
-                }}
-                className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-lg transition-all ${
-                  viewMode === 'story'
-                    ? 'bg-gradient-to-r from-cyan-500/20 to-indigo-500/20 text-cyan-300 border border-cyan-500/40 shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200'
-                }`}
-                title="Full Interactive Development Journey"
-              >
-                <Compass className="w-3 h-3 text-cyan-400" />
-                <span className="hidden sm:inline">STORY</span>
-              </button>
+          {/* Right Action Tools: Dual View Mode Switcher, GitHub, Resume, Sound, CLI */}
+          <div className="flex items-center gap-2">
+            {/* View Mode Switcher Pill (Recruiter View | My Story) */}
+            <div className="flex items-center bg-neutral-900/90 p-1 rounded-xl border border-white/10 text-[11px] font-mono shadow-inner">
               <button
                 onClick={() => {
                   sounds.playConfirm();
                   onToggleViewMode('recruiter');
                 }}
-                className={`flex items-center gap-1 px-2 sm:px-2.5 py-1 rounded-lg transition-all ${
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
                   viewMode === 'recruiter'
-                    ? 'bg-gradient-to-r from-emerald-500/20 to-teal-500/20 text-emerald-300 border border-emerald-500/40 shadow-sm'
-                    : 'text-neutral-400 hover:text-neutral-200'
+                    ? 'bg-neutral-800 text-emerald-400 border border-emerald-500/40 shadow-sm font-semibold'
+                    : 'text-neutral-400 hover:text-white'
                 }`}
-                title="Condensed Executive View for Recruiters"
+                title="Professional Recruiter Portfolio View"
               >
-                <Briefcase className="w-3 h-3 text-emerald-400" />
-                <span className="hidden sm:inline">RECRUITER</span>
+                <Briefcase className="w-3 h-3" />
+                <span className="hidden sm:inline">Recruiter View</span>
               </button>
-            </div>
-
-            {/* Quick Tour Button */}
-            {viewMode === 'story' && (
               <button
                 onClick={() => {
                   sounds.playConfirm();
-                  onStartTour();
+                  onToggleViewMode('story');
                 }}
-                className="hidden md:flex items-center gap-1 px-2.5 py-1.5 rounded-xl bg-amber-500/10 hover:bg-amber-500/20 text-amber-300 border border-amber-500/30 text-xs font-mono transition-all group"
-                title="Start Guided Interactive Quick Tour"
+                className={`flex items-center gap-1.5 px-2.5 py-1 rounded-lg transition-all ${
+                  viewMode === 'story'
+                    ? 'bg-neutral-800 text-cyan-300 border border-cyan-500/40 shadow-sm font-semibold'
+                    : 'text-neutral-400 hover:text-white'
+                }`}
+                title="Creative Engineering Story & Architecture"
               >
-                <Zap className="w-3 h-3 text-amber-400 group-hover:rotate-12 transition-transform" />
-                <span>TOUR</span>
+                <Compass className="w-3 h-3" />
+                <span className="hidden sm:inline">My Story</span>
               </button>
-            )}
+            </div>
 
-            {/* Terminal Button */}
+            {/* GitHub Link (Desktop) */}
+            <a
+              href="https://github.com/Bewin007"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="hidden md:flex p-2 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-white/10 text-neutral-300 hover:text-white transition-colors"
+              title="GitHub Profile"
+              aria-label="GitHub Profile"
+            >
+              <GithubIcon className="w-4 h-4" />
+            </a>
+
+            {/* Resume Button (Desktop) */}
+            <button
+              onClick={handleDownloadResume}
+              className="hidden md:flex items-center gap-1.5 px-3 py-1.5 rounded-xl bg-neutral-900/90 hover:bg-neutral-800 border border-emerald-500/30 hover:border-emerald-500/60 text-emerald-400 font-mono text-xs font-semibold transition-all"
+              title="Download Resume (PDF)"
+            >
+              <Download className="w-3.5 h-3.5" />
+              <span>Resume</span>
+            </button>
+
+            {/* Terminal CLI Button */}
             <button
               onClick={() => {
                 sounds.playTerminalBeep();
                 onOpenTerminal();
               }}
-              className="flex items-center gap-1 px-2 sm:px-2.5 py-1.5 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 text-neutral-300 hover:text-cyan-300 border border-white/10 text-xs font-mono transition-all"
-              title="Launch Interactive Terminal"
+              className="hidden sm:flex p-2 rounded-xl bg-neutral-900/80 hover:bg-neutral-800 border border-white/10 text-neutral-400 hover:text-cyan-300 transition-colors"
+              title="Open Terminal CLI (Ctrl+K or `)"
+              aria-label="Open Terminal CLI"
             >
-              <Terminal className="w-3.5 h-3.5 text-cyan-400" />
-              <span className="hidden sm:inline">CLI</span>
+              <Terminal className="w-3.5 h-3.5" />
             </button>
 
             {/* Audio Toggle */}
             <button
               onClick={handleSoundToggle}
-              className={`p-1.5 sm:p-2 rounded-xl border text-xs transition-colors ${
+              className={`p-2 rounded-xl border text-xs transition-colors ${
                 isMuted
-                  ? 'border-white/5 text-neutral-400 hover:text-neutral-200 hover:bg-neutral-900'
+                  ? 'border-white/5 text-neutral-500 hover:text-neutral-300 hover:bg-neutral-900'
                   : 'border-cyan-500/40 text-cyan-400 bg-cyan-950/40 shadow-[0_0_8px_rgba(0,240,255,0.2)]'
               }`}
-              title={isMuted ? 'Enable subtle audio feedback' : 'Mute audio feedback'}
+              title={isMuted ? 'Unmute subtle audio feedback' : 'Mute audio feedback'}
               aria-label="Toggle Audio"
             >
               {isMuted ? <VolumeX className="w-3.5 h-3.5" /> : <Volume2 className="w-3.5 h-3.5" />}
             </button>
+
+            {/* Mobile Hamburger Button */}
+            <button
+              onClick={() => setIsMobileMenuOpen((prev) => !prev)}
+              className="lg:hidden p-2 rounded-xl bg-neutral-900/90 border border-white/10 text-neutral-300 hover:text-white"
+              aria-label="Toggle Navigation Menu"
+            >
+              {isMobileMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
+            </button>
           </div>
         </div>
       </header>
+
+      {/* Mobile Menu Dropdown Drawer */}
+      {isMobileMenuOpen && (
+        <div className="fixed inset-0 z-30 lg:hidden bg-neutral-950/95 backdrop-blur-2xl pt-24 px-6 pb-8 flex flex-col justify-between">
+          <div>
+            {/* View Mode Toggle Mobile */}
+            <div className="p-1 bg-neutral-900 rounded-xl border border-white/10 flex items-center mb-8 text-xs font-mono">
+              <button
+                onClick={() => {
+                  sounds.playConfirm();
+                  onToggleViewMode('recruiter');
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`flex-1 py-2.5 rounded-lg flex items-center justify-center gap-2 ${
+                  viewMode === 'recruiter'
+                    ? 'bg-neutral-800 text-emerald-400 font-bold border border-emerald-500/30'
+                    : 'text-neutral-400'
+                }`}
+              >
+                <Briefcase className="w-4 h-4" />
+                <span>Recruiter View</span>
+              </button>
+              <button
+                onClick={() => {
+                  sounds.playConfirm();
+                  onToggleViewMode('story');
+                  setIsMobileMenuOpen(false);
+                }}
+                className={`flex-1 py-2.5 rounded-lg flex items-center justify-center gap-2 ${
+                  viewMode === 'story'
+                    ? 'bg-neutral-800 text-cyan-300 font-bold border border-cyan-500/30'
+                    : 'text-neutral-400'
+                }`}
+              >
+                <Compass className="w-4 h-4" />
+                <span>My Story</span>
+              </button>
+            </div>
+
+            {/* Links List */}
+            <div className="space-y-2">
+              {(viewMode === 'recruiter' ? recruiterLinks : storyLinks).map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => handleLinkClick(link.anchor)}
+                  className="w-full text-left py-3 px-4 rounded-xl bg-neutral-900/50 hover:bg-neutral-900 border border-white/5 text-sm font-mono text-neutral-200 flex items-center justify-between"
+                >
+                  <span>{link.label}</span>
+                  <ArrowRight className="w-4 h-4 text-neutral-500" />
+                </button>
+              ))}
+
+              {viewMode === 'recruiter' && (
+                <button
+                  onClick={() => {
+                    sounds.playConfirm();
+                    onToggleViewMode('story');
+                    setIsMobileMenuOpen(false);
+                  }}
+                  className="w-full text-left py-3 px-4 rounded-xl bg-purple-950/20 hover:bg-purple-950/40 border border-purple-500/20 text-sm font-mono text-purple-300 flex items-center justify-between"
+                >
+                  <span className="flex items-center gap-2">
+                    <Compass className="w-4 h-4" />
+                    <span>Explore My Story</span>
+                  </span>
+                  <ArrowRight className="w-4 h-4 text-purple-400" />
+                </button>
+              )}
+            </div>
+          </div>
+
+          {/* Mobile Bottom Actions */}
+          <div className="space-y-3 pt-6 border-t border-white/10 font-mono text-xs">
+            <button
+              onClick={() => {
+                handleDownloadResume();
+                setIsMobileMenuOpen(false);
+              }}
+              className="w-full py-3.5 rounded-xl bg-emerald-500 text-neutral-950 font-bold flex items-center justify-center gap-2"
+            >
+              <Download className="w-4 h-4" />
+              <span>DOWNLOAD RESUME (PDF)</span>
+            </button>
+
+            <div className="grid grid-cols-2 gap-3">
+              <a
+                href="https://github.com/Bewin007"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="py-3 rounded-xl bg-neutral-900 border border-white/10 text-neutral-300 flex items-center justify-center gap-2"
+              >
+                <GithubIcon className="w-4 h-4" />
+                <span>GitHub</span>
+              </a>
+              <button
+                onClick={() => {
+                  sounds.playTerminalBeep();
+                  setIsMobileMenuOpen(false);
+                  onOpenTerminal();
+                }}
+                className="py-3 rounded-xl bg-neutral-900 border border-white/10 text-neutral-300 flex items-center justify-center gap-2"
+              >
+                <Terminal className="w-4 h-4 text-cyan-400" />
+                <span>Terminal</span>
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </>
   );
 };

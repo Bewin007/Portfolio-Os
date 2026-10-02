@@ -27,10 +27,18 @@ import {
 interface CaseStudyModalProps {
   project: ProjectCaseStudy | null;
   onClose: () => void;
+  initialTab?: 'origin' | 'architecture' | 'decisions' | 'metrics';
 }
 
-export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose }) => {
-  const [activeTab, setActiveTab] = useState<'origin' | 'architecture' | 'decisions' | 'metrics'>('origin');
+export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose, initialTab = 'origin' }) => {
+  const [activeTab, setActiveTab] = useState<'origin' | 'architecture' | 'decisions' | 'metrics'>(initialTab);
+
+  // Sync initialTab when project or initialTab changes
+  useEffect(() => {
+    if (initialTab) {
+      setActiveTab(initialTab);
+    }
+  }, [initialTab, project]);
 
   // Prevent background scroll when modal is active
   useEffect(() => {
