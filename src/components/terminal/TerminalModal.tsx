@@ -94,7 +94,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
             <span>journey/</span>
             <span>dna/</span>
             <span>work/</span>
-            <span>experiments/</span>
+            <span>buildlog/</span>
             <span>now/</span>
             <span>contact/</span>
           </div>
@@ -127,13 +127,13 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
             <div>[003] RAG Endpoint Firewall — Autonomous Rule Agent (SIH 2024, iptables)</div>
             <div>[004] Hardware Forensic Suite — Intel NUC Forensics (Kavach 2023 Finalist)</div>
             <div>[005] CodeTutor — Automated Lab & Viva Management (Django, React, Docker)</div>
-            <div>[006] InterviewBot ("Rachel") — Mock Interview Bot with Fine-Tuned LLM</div>
+            <div>[006] Enterprise Analytics & Automated Report Engine (Infosys Enterprise Tool)</div>
           </div>
         );
         break;
 
       case 'status':
-        output = 'KERNEL: BEWIN.OS v1.0.0 // STATUS: OPTIMAL // LOCATION: Nagercoil / Coimbatore, IN // UPTIME: 99.98%';
+        output = 'KERNEL: BEWIN.OS v1.0.1 // STATUS: OPTIMAL // LOCATION: Nagercoil / Coimbatore, IN // UPTIME: 99.98%';
         break;
 
       case 'resume':

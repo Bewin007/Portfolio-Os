@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://bewin007.github.io/Portfolio-Os/sitemap.xml

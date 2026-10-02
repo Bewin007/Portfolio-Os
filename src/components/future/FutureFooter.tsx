@@ -7,12 +7,14 @@ import {
   ArrowUp,
   Sparkles,
   CheckCircle2,
-  Copy
+  Copy,
+  ExternalLink
 } from 'lucide-react';
 
 export const FutureFooter: React.FC = () => {
   const [copied, setCopied] = useState(false);
   const [formSent, setFormSent] = useState(false);
+  const [senderInfo, setSenderInfo] = useState('');
   const [message, setMessage] = useState('');
 
   const email = 'biwinfelix@gmail.com';
@@ -27,12 +29,29 @@ export const FutureFooter: React.FC = () => {
   const handleSendMessage = (e: React.FormEvent) => {
     e.preventDefault();
     if (!message.trim()) return;
-    setFormSent(true);
+
     sounds.playConfirm();
+    setFormSent(true);
+
+    const subject = encodeURIComponent(
+      senderInfo.trim()
+        ? `Collaboration Inquiry from ${senderInfo.trim()} [Bewin Portfolio]`
+        : 'Collaboration Inquiry [Bewin Portfolio]'
+    );
+    const bodyText = `${senderInfo.trim() ? `From: ${senderInfo.trim()}\n\n` : ''}${message.trim()}\n\n---\nTransmitted via Bewin.OS Portfolio`;
+    const body = encodeURIComponent(bodyText);
+
+    // Copy formatted transmission payload to clipboard for instant pasting anywhere
+    navigator.clipboard.writeText(bodyText).catch(() => {});
+
+    // Trigger user's mail client
+    window.location.href = `mailto:${email}?subject=${subject}&body=${body}`;
+
     setTimeout(() => {
       setMessage('');
+      setSenderInfo('');
       setFormSent(false);
-    }, 4000);
+    }, 6000);
   };
 
   const scrollToTop = () => {
@@ -128,16 +147,23 @@ export const FutureFooter: React.FC = () => {
 
         {/* Right: Quick Transmission Form (6 cols) */}
         <div className="md:col-span-6">
-          <form onSubmit={handleSendMessage} className="space-y-4">
+          <form onSubmit={handleSendMessage} className="space-y-3">
             <div>
-              <label className="text-xs font-mono text-neutral-400 block mb-1.5">
+              <label className="text-xs font-mono text-neutral-400 block mb-1">
                 TRANSMIT MESSAGE // INSTANT DISPATCH
               </label>
+              <input
+                type="text"
+                value={senderInfo}
+                onChange={(e) => setSenderInfo(e.target.value)}
+                placeholder="Your Name, Company, or Contact (Optional)"
+                className="w-full mb-2 px-3.5 py-2.5 rounded-xl bg-neutral-950 border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-neutral-600"
+              />
               <textarea
                 value={message}
                 onChange={(e) => setMessage(e.target.value)}
                 placeholder="What are you building? How can we collaborate?"
-                rows={4}
+                rows={3}
                 required
                 className="w-full p-3.5 rounded-2xl bg-neutral-950 border border-white/10 text-white font-mono text-xs focus:outline-none focus:border-cyan-400 transition-colors placeholder:text-neutral-600 resize-none"
               />
@@ -145,12 +171,16 @@ export const FutureFooter: React.FC = () => {
 
             <button
               type="submit"
-              className="w-full py-3 rounded-xl bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-neutral-950 font-mono text-xs font-bold tracking-wider transition-all flex items-center justify-center gap-2"
+              className={`w-full py-3 rounded-xl font-mono text-xs font-bold tracking-wider transition-all flex items-center justify-center gap-2 ${
+                formSent
+                  ? 'bg-emerald-400 text-neutral-950 shadow-[0_0_15px_rgba(52,211,153,0.3)]'
+                  : 'bg-gradient-to-r from-cyan-500 to-indigo-600 hover:from-cyan-400 hover:to-indigo-500 text-neutral-950'
+              }`}
             >
               {formSent ? (
                 <>
                   <CheckCircle2 className="w-4 h-4 text-neutral-950" />
-                  <span>TRANSMISSION BUFFERED (SAMPLE DEMO)</span>
+                  <span>TRANSMISSION DISPATCHED // OPENING MAIL CLIENT</span>
                 </>
               ) : (
                 <>
@@ -159,6 +189,27 @@ export const FutureFooter: React.FC = () => {
                 </>
               )}
             </button>
+
+            {formSent && (
+              <div className="p-3 rounded-xl bg-neutral-950/90 border border-emerald-500/30 font-mono text-[11px] text-neutral-300 space-y-1.5 animate-in fade-in duration-300">
+                <div className="text-emerald-400 font-semibold flex items-center gap-1.5">
+                  <CheckCircle2 className="w-3.5 h-3.5 text-emerald-400" />
+                  <span>Transmission payload copied to clipboard!</span>
+                </div>
+                <div className="flex items-center justify-between gap-2 pt-1 text-neutral-400">
+                  <span>Using webmail instead?</span>
+                  <a
+                    href={`https://mail.google.com/mail/?view=cm&fs=1&to=${email}&su=${encodeURIComponent('Collaboration Inquiry [Bewin Portfolio]')}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-cyan-400 hover:text-cyan-300 underline font-semibold"
+                  >
+                    <span>Open in Gmail Web</span>
+                    <ExternalLink className="w-3 h-3" />
+                  </a>
+                </div>
+              </div>
+            )}
           </form>
         </div>
       </div>
@@ -166,7 +217,7 @@ export const FutureFooter: React.FC = () => {
       {/* Bottom Minimal Signature Bar */}
       <div className="flex flex-col sm:flex-row items-center justify-between gap-4 pt-8 border-t border-white/5 text-xs font-mono text-neutral-400">
         <div className="flex items-center gap-2">
-          <span>BEWIN.OS [v1.0.0]</span>
+          <span>BEWIN.OS [v1.0.1]</span>
           <span>•</span>
           <span>BUILT WITH REACT, VITE, TS & TAILWIND</span>
         </div>

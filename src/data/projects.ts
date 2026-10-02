@@ -351,7 +351,7 @@ export const projectArchive: ProjectCaseStudy[] = [
   },
   {
     id: 'interviewbot-rachel',
-    code: '006',
+    code: '007',
     title: 'InterviewBot ("Rachel")',
     tagline: 'AI-Powered Interactive Interview Bot with Fine-Tuned LLM',
     category: 'AI',
@@ -417,7 +417,7 @@ export const projectArchive: ProjectCaseStudy[] = [
   },
   {
     id: 'infosys-dashboard-reporter',
-    code: '007',
+    code: '006',
     title: 'Enterprise Analytics & Automated Report Engine',
     tagline: 'Internal Telemetry Dashboard & AI-Driven Report Generation',
     category: 'WEB',

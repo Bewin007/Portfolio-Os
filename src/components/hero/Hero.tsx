@@ -46,7 +46,7 @@ export const Hero: React.FC<HeroProps> = ({
           </span>
           <span className="tracking-widest">SYSTEM ONLINE</span>
           <span className="text-neutral-500">•</span>
-          <span className="text-neutral-400 tracking-tight">BEWIN.OS v1.0.0</span>
+          <span className="text-neutral-400 tracking-tight">BEWIN.OS v1.0.1</span>
         </motion.div>
 
         {/* Large Editorial Name Typography */}

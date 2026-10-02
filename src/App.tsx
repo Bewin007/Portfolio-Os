@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ViewMode, ProjectCaseStudy } from './types';
+import { useAppRouter, navigateTo } from './utils/router';
 import { CanvasBackground } from './components/common/CanvasBackground';
 import { Navbar } from './components/layout/Navbar';
 import { Hero } from './components/hero/Hero';
@@ -9,7 +10,6 @@ import { EngineeringDna } from './components/dna/EngineeringDna';
 import { ProjectArchive } from './components/projects/ProjectArchive';
 import { CaseStudyModal } from './components/projects/CaseStudyModal';
 import { ProblemSolving } from './components/problemsolving/ProblemSolving';
-import { ExperimentLab } from './components/experiments/ExperimentLab';
 import { BuildLog } from './components/buildlog/BuildLog';
 import { CurrentState } from './components/now/CurrentState';
 import { FutureFooter } from './components/future/FutureFooter';
@@ -20,11 +20,14 @@ import { projectArchive } from './data/projects';
 import { sounds } from './utils/audio';
 
 export function App() {
-  const [viewMode, setViewMode] = useState<ViewMode>('story');
+  const { route, isStory } = useAppRouter();
+  const viewMode: ViewMode = isStory ? 'story' : 'recruiter';
+
   const [isTerminalOpen, setIsTerminalOpen] = useState(false);
   const [isTourOpen, setIsTourOpen] = useState(false);
-  const [activeSection, setActiveSection] = useState('hero');
+  const [activeSection, setActiveSection] = useState('projects');
   const [activeCaseStudy, setActiveCaseStudy] = useState<ProjectCaseStudy | null>(null);
+  const [caseStudyInitialTab, setCaseStudyInitialTab] = useState<'origin' | 'architecture' | 'decisions' | 'metrics'>('origin');
 
   // Keyboard shortcut: Press `~` or `\` or `ctrl+k` to toggle terminal
   useEffect(() => {
@@ -39,13 +42,14 @@ export function App() {
     return () => window.removeEventListener('keydown', handleKeyDown);
   }, []);
 
-  // Track active section for navbar highlighting
+  // Track active section for navbar highlighting depending on view mode
   useEffect(() => {
-    if (viewMode !== 'story') return;
+    const recruiterSections = ['projects', 'experience', 'contact'];
+    const storySections = ['hero', 'journey', 'dna', 'projects', 'now', 'contact'];
+    const sections = viewMode === 'recruiter' ? recruiterSections : storySections;
 
-    const sections = ['hero', 'journey', 'stack', 'dna', 'projects', 'experiments', 'now', 'contact'];
     const handleScroll = () => {
-      const scrollPosition = window.scrollY + 200;
+      const scrollPosition = window.scrollY + 220;
       for (const sectionId of sections) {
         const el = document.getElementById(sectionId);
         if (el) {
@@ -60,13 +64,26 @@ export function App() {
     };
 
     window.addEventListener('scroll', handleScroll, { passive: true });
+    handleScroll();
     return () => window.removeEventListener('scroll', handleScroll);
   }, [viewMode]);
 
-  const handleOpenCaseStudyById = (id: string) => {
+  const handleOpenCaseStudyById = (
+    id: string,
+    tab: 'origin' | 'architecture' | 'decisions' | 'metrics' = 'origin'
+  ) => {
     const found = projectArchive.find((p) => p.id === id);
     if (found) {
+      setCaseStudyInitialTab(tab);
       setActiveCaseStudy(found);
+    }
+  };
+
+  const handleToggleViewMode = (newMode: ViewMode) => {
+    if (newMode === 'story') {
+      navigateTo('/story');
+    } else {
+      navigateTo('/');
     }
   };
 
@@ -82,23 +99,30 @@ export function App() {
       {/* Cinematic Ambient Particle Canvas Layer */}
       <CanvasBackground interactive={true} />
 
-      {/* Floating Global Navbar */}
+      {/* Floating Global Responsive Navbar */}
       <Navbar
         viewMode={viewMode}
-        onToggleViewMode={(mode) => setViewMode(mode)}
+        onToggleViewMode={handleToggleViewMode}
         onOpenTerminal={() => setIsTerminalOpen(true)}
         onStartTour={() => setIsTourOpen(true)}
         activeSection={activeSection}
       />
 
-      {/* Mode View: Story Mode vs Recruiter Mode */}
-      {viewMode === 'story' ? (
+      {/* Route Views: Recruiter Portfolio (/) vs Creative Engineering Story (/story) */}
+      {viewMode === 'recruiter' ? (
+        <main className="relative z-10">
+          <RecruiterView
+            onSwitchToStory={() => navigateTo('/story')}
+            onOpenCaseStudy={handleOpenCaseStudyById}
+          />
+        </main>
+      ) : (
         <main className="relative z-10">
           {/* 1. Hero Introduction */}
           <Hero
             onExploreJourney={handleScrollToJourney}
             onOpenTerminal={() => setIsTerminalOpen(true)}
-            onSwitchToRecruiter={() => setViewMode('recruiter')}
+            onSwitchToRecruiter={() => navigateTo('/')}
           />
 
           {/* 2. Primary Development Journey Timeline */}
@@ -113,13 +137,10 @@ export function App() {
           {/* 5. Technical Project Archive & Dossiers */}
           <ProjectArchive onOpenCaseStudy={setActiveCaseStudy} />
 
-          {/* 6. Systematic Problem-Solving Walkthrough */}
+          {/* 6. How I Approach Engineering Problems (4-Step Process) */}
           <ProblemSolving />
 
-          {/* 7. First-Principles Experiment Lab */}
-          <ExperimentLab />
-
-          {/* 8. Engineering Build Log & Changelog */}
+          {/* 7. Engineering Build Log & Changelog */}
           <BuildLog />
 
           {/* 9. Current State (NOW) */}
@@ -128,23 +149,16 @@ export function App() {
           {/* 10. Next Chapter & Footer */}
           <FutureFooter />
         </main>
-      ) : (
-        <main className="relative z-10">
-          <RecruiterView
-            onSwitchToStory={() => setViewMode('story')}
-            onOpenCaseStudy={handleOpenCaseStudyById}
-          />
-          <FutureFooter />
-        </main>
       )}
 
-      {/* Case Study Modal (Shared) */}
+      {/* Case Study Deep-Dive Modal (Shared across both experiences) */}
       <CaseStudyModal
         project={activeCaseStudy}
+        initialTab={caseStudyInitialTab}
         onClose={() => setActiveCaseStudy(null)}
       />
 
-      {/* Interactive Terminal Modal */}
+      {/* Interactive Terminal CLI Modal */}
       <TerminalModal
         isOpen={isTerminalOpen}
         onClose={() => setIsTerminalOpen(false)}
@@ -152,7 +166,7 @@ export function App() {
           const el = document.getElementById(id);
           if (el) el.scrollIntoView({ behavior: 'smooth' });
         }}
-        onSwitchRecruiter={() => setViewMode('recruiter')}
+        onSwitchRecruiter={() => navigateTo('/')}
       />
 
       {/* Quick Tour Overlay */}
