@@ -16,33 +16,34 @@ interface ExperienceItem {
 const experiences: ExperienceItem[] = [
   {
     company: 'Infosys',
-    role: 'Specialist Programmer (JL5)',
+    role: 'Specialist Programmer',
     period: 'August 2025 — Present',
     location: 'Coimbatore / Enterprise Engineering',
     isCurrent: true,
     summary:
-      'Designing and developing internal enterprise telemetry dashboards, backend data aggregation microservices, and automated AI report engines.',
+      'Engineered the internal Demand Module focused on real-time talent visualization, bench analytics, and automated demand-vs-talent fulfillment reporting.',
     responsibilities: [
-      'Architected internal telemetry dashboard platforms aggregating distributed engineering metrics with sub-second chart re-renders.',
-      'Constructed autonomous Agentic AI reporting pipelines that synthesize raw database logs into structured executive PDF and Excel summaries.',
-      'Optimized backend aggregation query pipelines and RESTful endpoints using FastAPI and PostgreSQL, adhering to strict enterprise confidentiality standards.',
+      'Developed interactive visualization dashboards with Recharts rendering 4–5 dynamic chart views tracking talent bench counts, active demands, unconfirmed allocations, and fulfillment ratios.',
+      'Built automated demand-vs-talent reporting pipelines delivering structured executive breakdowns on assigned personnel and available bench strength.',
+      'Engineered high-performance asynchronous aggregation endpoints and queries using FastAPI and PostgreSQL, adhering to strict enterprise confidentiality standards.',
     ],
-    technologies: ['React', 'FastAPI', 'Node.js', 'LangGraph', 'PostgreSQL', 'Docker', 'Tailwind CSS'],
+    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker', 'Tailwind CSS'],
   },
   {
     company: 'Karunya University',
-    role: 'Lead Campus Developer & KHacks Technical Lead',
+    role: 'Campus Developer & KHacks App & Web Club Lead',
     period: '2023 — 2025',
     location: 'Coimbatore, India',
     isCurrent: false,
     summary:
-      'Engineered core institutional web platforms and campus AI infrastructure while leading systems and containerization workshops.',
+      'Led web and campus development initiatives, deployed the institutional AI chatbot, and conducted regular technical workshops for university and inter-college students.',
     responsibilities: [
-      'Architected and deployed chat.karunya.edu campus AI chatbot platform utilizing Triton Inference Server and vLLM continuous batching for 8,000+ students & faculty.',
-      'Built CodeTutor, an automated lab grading and viva evaluation platform deployed in production for a laboratory section of 70 students with sandboxed Docker execution.',
-      'Conducted hands-on technical workshops on Docker containerization and modern backend architecture for 250+ engineering students as KHacks Lead.',
+      'Deployed sofie(Chatbot), Karunya’s institutional campus AI chatbot platform utilizing Triton Inference Server with vllm_backend on a multi-GPU 4x L40S cluster with NeMo Guardrails.',
+      'Engineered CodeTutor, an automated lab grading and viva evaluation platform for Python, C, C++, and Java integrated with Judge0 for code compilation across 70 students.',
+      'Conducted 2–4 hands-on workshops per month (with 50–300+ participants per venue) on Web Development, Docker containerization, and modern backend architectures as KHacks Lead.',
+      'Trained 200+ students in modern web development and led development teams through Karunya’s Earn While You Learn scheme on internal campus software systems.',
     ],
-    technologies: ['vLLM', 'Triton Server', 'Python', 'Django REST', 'React', 'Docker', 'Linux'],
+    technologies: ['Triton vllm_backend', 'NeMo Guardrails', 'Python', 'FastAPI', 'Django REST', 'React', 'Judge0', 'Docker'],
   },
   {
     company: 'Cisco',
@@ -88,11 +89,10 @@ export const ProfessionalExperience: React.FC = () => {
             initial={shouldReduceMotion ? { opacity: 1 } : { opacity: 0, y: 16 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: idx * 0.08 }}
-            className={`p-7 sm:p-8 rounded-3xl bg-neutral-950/80 border transition-all duration-300 ${
-              exp.isCurrent
+            className={`p-7 sm:p-8 rounded-3xl bg-neutral-950/80 border transition-all duration-300 ${exp.isCurrent
                 ? 'border-emerald-500/30 shadow-[0_0_30px_rgba(16,185,129,0.06)]'
                 : 'border-white/10 hover:border-white/20'
-            }`}
+              }`}
           >
             {/* Top row: Company, Role, Period, Location */}
             <div className="flex flex-col md:flex-row md:items-center justify-between gap-4 pb-6 mb-6 border-b border-white/5">

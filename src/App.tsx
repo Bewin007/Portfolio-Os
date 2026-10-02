@@ -68,6 +68,11 @@ export function App() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, [viewMode]);
 
+  // Always scroll to top when switching between recruiter view and story
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [viewMode]);
+
   const handleOpenCaseStudyById = (
     id: string,
     tab: 'origin' | 'architecture' | 'decisions' | 'metrics' = 'origin'
@@ -80,6 +85,7 @@ export function App() {
   };
 
   const handleToggleViewMode = (newMode: ViewMode) => {
+    window.scrollTo({ top: 0, behavior: 'instant' });
     if (newMode === 'story') {
       navigateTo('/story');
     } else {

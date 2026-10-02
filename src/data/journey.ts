@@ -48,34 +48,33 @@ export const journeyChapters: TimelineChapter[] = [
   {
     id: 'year-02',
     year: '2022',
-    phase: 'CYBERSECURITY & COMMUNITY',
-    title: 'Digital Forensics, Web3 & Tech Community Leadership',
-    subtitle: 'KAVACH 2023 Grand Finale Finalist & KHacks Leadership',
-    era: '2022 — 2023 [Karunya University]',
-    story: `Evolved from individual scripting into national competitive hackathons and campus technical leadership. Stepped up as Head of App and Web Development for KHacks Karunya, conducting workshops on Docker, Git, and Tableau for 250+ students. Selected as National Grand Finale Finalist from 3,800 teams in KAVACH 2023 (Cybersecurity Hackathon conducted by AICTE & Ministry of Education, Govt of India) in Odisha, engineering a portable hardware forensic suite on an Intel NUC.`,
+    phase: 'COMMUNITY LEADERSHIP & DIGITAL FORENSICS',
+    title: 'KHacks Leadership, State Hackathons & Lab Exploration',
+    subtitle: 'Joined KHacks July 2022 · TN Police Hackathon March 2023 · Summer Intern',
+    era: '2022 — 2023 [Karunya University & KHacks]',
+    story: `Evolved rapidly into campus technical leadership and competitive hackathons. Joined KHacks in July 2022—a student-run organization with the motto "Learn, Build, Compete"—and became a core team member in December 2022. During my tenure, I conducted multiple workshops (2–4 per month with 50–300+ participants based on venue) for students from schools and colleges on Docker, web development, and backend systems. Competed in the Tamil Nadu Police Hackathon in March 2023 (March 28–29, 2023, Team T3tra / Project SocialEye for video forensics). During the 2022–2023 summer internship, explored lab virtualization possibilities and constraints, and initiated the Smart Karunya centralized digital twin (capturing air pollution, weather, soil moisture, and power metrics) with 50 days of documentation and POCs.`,
     learningFocus: [
-      'Digital Forensics: Volatile RAM inspection (Volatility) & Disk carving',
-      'Community Workshop Leadership & Mentoring Hackathon Teams',
-      'Decentralized Messaging & Web3 Architecture (Teachnook)',
-      'Event Organization: Stackmasters in Mindkraft (500+ participants)',
-      'Docker Containerization for Reproducible Environments'
+      'KHacks Core Team Leadership & Conducting 2–4 Technical Workshops Monthly',
+      'Docker Containerization & Backend Foundations for 50–300+ Students per Session',
+      'OSINT Video Forensics for Law Enforcement (TN Police Hackathon March 2023)',
+      'Lab Virtualization Systems & Constraints Exploration (Summer Internship)',
+      'Smart Karunya Digital Twin System Architecture (IoT Telemetry POCs)'
     ],
     whatWasBuilt: [
       {
-        name: 'Hardware Forensic Suite (Kavach 2023 Grand Finale Finalist)',
-        description: 'A portable, virtualized Intel NUC hardware unit executing memory, disk, and network forensics with automated court-admissible PDF reports.',
-        tech: ['Intel NUC', 'Python', 'Volatility', 'TShark', 'Linux'],
-        projectId: 'hardware-forensic-suite'
+        name: 'Project SocialEye (TN Police Hackathon 2023 State Finalist)',
+        description: 'Engineered YouTube OSINT and video forensic analysis platform for cybercrime investigators in Chennai Finals (March 28–29, 2023, Team T3tra).',
+        tech: ['Python', 'OpenCV', 'OSINT', 'FastAPI']
       },
       {
-        name: 'Web3 Decentralized Chat Prototype',
-        description: 'Developed during Web Developer Internship at Teachnook exploring peer-to-peer and blockchain-backed messaging channels.',
-        tech: ['JavaScript', 'Web3', 'Node.js', 'React']
+        name: 'Smart Karunya Digital Twin POCs (Summer Internship)',
+        description: 'Documented architecture and built initial POCs for a centralized campus digital twin tracking air pollution, weather prediction, soil moisture, and power usage.',
+        tech: ['IoT Telemetry', 'Python', 'Flask', 'PostgreSQL']
       }
     ],
-    technologiesEncountered: ['Docker', 'Digital Forensics', 'Intel NUC', 'React', 'Node.js', 'Tableau', 'Linux Forensics'],
-    keyChallenges: 'Preserving strict bitstream evidence integrity on compact hardware without triggering thermal throttling during raw memory dumps.',
-    lessonLearned: 'Explaining technology to 250+ students in workshops forced me to master concepts far more deeply than just reading documentation.',
+    technologiesEncountered: ['Docker', 'Python', 'FastAPI', 'OpenCV', 'OSINT', 'Linux', 'PostgreSQL'],
+    keyChallenges: 'Conducting high-frequency technical workshops for diverse skill levels while engineering real-time video forensics under intense hackathon deadlines.',
+    lessonLearned: 'Teaching hundreds of students forces you to simplify architectures to first principles and builds exceptional communication clarity.',
     visualTheme: {
       accentColor: '#818cf8',
       badgeBg: 'bg-indigo-500/10 text-indigo-400 border-indigo-500/20',
@@ -86,34 +85,40 @@ export const journeyChapters: TimelineChapter[] = [
   {
     id: 'year-03',
     year: '2023',
-    phase: 'NATIONAL FINALIST & SCALE',
-    title: 'Smart India Hackathon Finalist & Campus Web Engineering',
-    subtitle: 'Selected in Top 0.1% of India (SIH 2023) & TN-Police Finalist',
-    era: '2023 — 2024 [Karunya University]',
-    story: `A pivotal milestone year. Selected as National Grand Finale Finalist from 44,000 teams across India in Smart India Hackathon (SIH) 2023 (conducted by AICTE and Ministry of Education, Govt of India) in Gujarat, engineering an AI/ML DNS Filtering Service with Zeek and Unbound DNS. Selected as Grand Finale Finalist in TN-Police 2023 from 300 state teams in Chennai. Worked as Web Developer in Karunya Computer Technology Center contributing to Smart Karunya and official campus portals.`,
+    phase: 'NATIONAL FINALIST & CLUB FOUNDER',
+    title: 'KAVACH Finalist, SIH Grand Finale & Club Head',
+    subtitle: 'KAVACH Aug 2023 · Founded Web & App Club Aug 2023 · SIH Dec 2023',
+    era: '2023 — 2024 [National Competitive Engineering]',
+    story: `A landmark year of verified national achievements. Selected as National Grand Finale Finalist out of 3,800 teams in KAVACH 2023 (Cybersecurity Hackathon by AICTE & Ministry of Education, Govt of India) in Odisha in August 2023, building a portable Intel NUC hardware forensic appliance. In August–September 2023, founded and served as Head of the KHacks Web & App Development Club, training 200+ students in modern web engineering and mentoring them into hackathons and internal projects. Actively led teams in Karunya's "Earn While You Learn" scheme on paid internal university software projects. Culminated in Smart India Hackathon (SIH) 2023 in December 2023 (Gujarat Finals), selected as National Grand Finale Finalist out of 44,000 teams for ISRO Problem Statement SIH1524 (Team NetOptics AI DNS Threat Filter).`,
     learningFocus: [
-      'Real-Time PCAP Packet Capture & Deep Protocol Analysis (Zeek)',
-      'Recursive DNS Resolvers & Dynamic Sinkhole Policies (Unbound)',
-      'Enterprise Backend Development with Django & Django REST Framework',
-      'Database Modeling & Index Optimization in PostgreSQL',
-      'Production Content Management Systems (Drupal) & Code-Server integration'
+      'National Hackathon Competition (KAVACH August 2023 Odisha & SIH December 2023 Gujarat)',
+      'Founding & Leading KHacks Web & App Dev Club: Training 200+ Students',
+      'Earn While You Learn Scheme: Leading Teams on Paid Internal University Projects',
+      'Real-Time PCAP Packet Capture & Deep Protocol Analysis (Zeek + Unbound DNS)',
+      'Hardware Forensics on Intel NUC (Volatility, TShark, Disk Carving)'
     ],
     whatWasBuilt: [
       {
-        name: 'AI DNS Threat Filtering Platform (SIH 2023 Grand Finale Finalist)',
-        description: 'DNS packet filter analyzing threat intelligence feeds and DGA domain entropy in real time with Grafana visualization.',
+        name: 'AI DNS Threat Filtering Platform (SIH 2023 Grand Finale Finalist · Dec 2023)',
+        description: 'ISRO PS SIH1524: Real-time DNS threat inspection with Zeek, Unbound DNS caching, DGA ML detection, and Grafana operations dashboard (Team NetOptics, Gujarat Finals).',
         tech: ['Python', 'Zeek', 'Unbound DNS', 'Django REST', 'Grafana'],
         projectId: 'sih-dns-filter'
       },
       {
-        name: 'Translation of Book PDF (Google Solution Challenge)',
-        description: 'Web-based e-library platform parsing PDF books and integrating the Gemini API for live multi-language reading.',
-        tech: ['Django REST', 'React', 'Gemini API', 'PostgreSQL']
+        name: 'Hardware Forensic Suite (KAVACH 2023 Grand Finale Finalist · Aug 2023)',
+        description: 'Portable Intel NUC appliance for multi-OS memory, disk, and network forensics with automated court-admissible PDF reports (Odisha Finals).',
+        tech: ['Intel NUC', 'Python', 'Volatility', 'TShark', 'Linux'],
+        projectId: 'hardware-forensic-suite'
+      },
+      {
+        name: 'Earn While You Learn Internal College Projects',
+        description: 'Led student development teams delivering production web tools for university administration under Karunya\'s paid student scheme.',
+        tech: ['React', 'Django REST', 'PostgreSQL', 'Docker']
       }
     ],
-    technologiesEncountered: ['Zeek', 'Unbound DNS', 'Django REST', 'PostgreSQL', 'Grafana', 'Drupal', 'Gemini API', 'Docker'],
-    keyChallenges: 'Analyzing thousands of live DNS packet streams without introducing perceptible network latency on high-speed internet backbones.',
-    lessonLearned: 'Building for national competitions teaches you that code elegance is useless if the system cannot survive sudden edge-case input floods.',
+    technologiesEncountered: ['Zeek', 'Unbound DNS', 'Intel NUC', 'Volatility', 'Django REST', 'PostgreSQL', 'Grafana', 'Docker'],
+    keyChallenges: 'Engineered an emergency 6-hour asynchronous crawler override at SIH 2023 when the ML model began misclassifying domains right before the jury presentation.',
+    lessonLearned: 'Building for national competitions proves that code elegance is useless without defensive fallback mechanisms under unpredictable runtime stresses.',
     visualTheme: {
       accentColor: '#2dd4bf',
       badgeBg: 'bg-teal-500/10 text-teal-400 border-teal-500/20',
@@ -124,41 +129,41 @@ export const journeyChapters: TimelineChapter[] = [
   {
     id: 'year-04',
     year: '2024',
-    phase: 'CAMPUS AI & CAPSTONE',
-    title: 'University LLM Deployment & RAG Security Agents',
-    subtitle: 'chat.karunya.edu, SIH 2024 College Finalist & CodeTutor Platform',
+    phase: 'CAMPUS AI & CAPSTONE DEPLOYMENTS',
+    title: 'sofie(Chatbot), SIH 2024 Firewall & CodeTutor',
+    subtitle: 'Triton vllm_backend on 4x L40S · SIH 2024 Finalist · Mentor Transition Dec 2024',
     era: '2024 — 2025 [Final Year Capstone]',
-    story: `Final year centered on high-impact institutional infrastructure and modern generative AI architectures. Spearheaded chat.karunya.edu—the university\'s private ChatGPT-style platform running on Triton Inference Server with vLLM PagedAttention and Graylog telemetry. Selected as SIH 2024 College-Level Finalist with a RAG-driven endpoint firewall agent. Built CodeTutor, successfully deploying it in production in an actual lab of 70 students for automated evaluation and viva conduction.`,
+    story: `Delivered high-concurrency production deployments across Karunya University. Spearheaded sofie(Chatbot)—the campus AI platform running on Triton Inference Server with vllm_backend across a multi-GPU 4x L40S cluster with NeMo Guardrails and Graylog observability, serving 8,000+ students and faculty. Selected as College-Level Finalist in Smart India Hackathon 2024 with the RAG Endpoint Firewall Agent (Team Night\'s Watch / PS 1741). Engineered CodeTutor, successfully deploying it in production in an actual lab of 70 students for automated viva conduction and code evaluation using Judge0 for Python, C, C++, and Java (with an experimental Docker runner prototype for React/Node). In December 2024, stepped down as active club lead to become Mentor, supporting the next generation of KHacks leadership. In Summer 2025, worked as summer intern exploring a complete Drupal portal overhaul (later shelved due to institutional budget reallocation).`,
     learningFocus: [
-      'High-Throughput LLM Model Serving (vLLM, Triton Inference Server)',
-      'Guardrails AI & Moderation Pipelines in Institutional Environments',
-      'Retrieval-Augmented Generation (RAG) for Automated Firewall Policy Synthesis',
-      'Sandboxed Docker Code Execution & Automated Test Verification',
-      'Elliptic-Curve Cryptography (ECC) for Enhanced Electronic Health Records'
+      'Multi-GPU LLM Inference Serving (Triton Inference Server with vllm_backend on 4x L40S)',
+      'NeMo Guardrails & Institutional Policy Rails for Campus-Wide Generative AI',
+      'Automated Academic Evaluation via Judge0 (Python, C, C++, Java)',
+      'Application-Context Aware Firewall Architecture via Hybrid RAG (SIH 2024 PS 1741)',
+      'Leadership Succession: Transitioning from Club Head to Mentor (Dec 2024)'
     ],
     whatWasBuilt: [
       {
-        name: 'chat.karunya.edu (Official Campus AI Platform)',
-        description: 'Enterprise private AI platform for Karunya University using Open WebUI, Triton + vLLM serving, and Graylog observability.',
-        tech: ['vLLM', 'Triton Server', 'FastAPI', 'Open WebUI', 'Graylog'],
+        name: 'sofie(Chatbot) — Campus AI Platform',
+        description: 'Enterprise on-premise AI platform serving 8,000+ university users using Triton vllm_backend on 4x L40S GPUs with NeMo Guardrails.',
+        tech: ['Triton vllm_backend', '4x L40S GPUs', 'NeMo Guardrails', 'Open WebUI', 'Graylog'],
         projectId: 'chat-karunya'
       },
       {
         name: 'RAG Endpoint Firewall Agent (SIH 2024 College Finalist)',
-        description: 'Lightweight endpoint security daemon using RAG to dynamically generate hardened firewall policies against zero-day anomalies.',
-        tech: ['Python', 'FastAPI', 'RAG', 'iptables', 'React'],
+        description: 'Centralized application-context aware firewall daemon using hybrid RAG to generate verified iptables rules against anomalous telemetry (Team Night\'s Watch).',
+        tech: ['Python', 'FastAPI', 'RAG', 'Milvus', 'iptables', 'React'],
         projectId: 'sih-2024-firewall'
       },
       {
         name: 'CodeTutor (Lab Management & Evaluation Platform)',
-        description: 'Comprehensive academic lab platform deployed in a real lab of 70 students, automating viva examinations and batch grading.',
-        tech: ['Django REST', 'React', 'PostgreSQL', 'Docker'],
+        description: 'Production lab platform deployed for 70 students, evaluating Python, C, C++, and Java submissions via Judge0 with automated viva testing.',
+        tech: ['Django REST', 'React', 'Judge0', 'PostgreSQL', 'Docker'],
         projectId: 'codetutor'
       }
     ],
-    technologiesEncountered: ['vLLM', 'Triton Inference Server', 'FastAPI', 'LangGraph & RAG', 'Open WebUI', 'Graylog', 'ECC Cryptography'],
-    keyChallenges: 'Balancing GPU memory footprints during concurrent class lab sessions and preventing autonomous AI agents from hallucinating system commands.',
-    lessonLearned: 'Generative AI is only as good as the software architecture surrounding it. Observability, guardrails, and deterministic fallbacks are non-negotiable.',
+    technologiesEncountered: ['Triton vllm_backend', '4x L40S GPUs', 'NeMo Guardrails', 'Milvus', 'Judge0', 'FastAPI', 'Open WebUI', 'Graylog'],
+    keyChallenges: 'Managing continuous batching across 4x L40S GPUs for simultaneous student lab queries and isolating student code evaluations safely via Judge0.',
+    lessonLearned: 'Generative AI is only as robust as the software architecture surrounding it. Observability, guardrails, and deterministic fallbacks are non-negotiable.',
     visualTheme: {
       accentColor: '#00f0ff',
       badgeBg: 'bg-cyan-500/10 text-cyan-400 border-cyan-500/20',
@@ -169,34 +174,29 @@ export const journeyChapters: TimelineChapter[] = [
   {
     id: 'now-chapter',
     year: '2025 – PRESENT',
-    phase: 'INDUSTRY & AGENTIC AI',
-    title: 'Specialist Programmer at Infosys & Agentic Systems',
-    subtitle: 'From Karunya CS Graduate to Enterprise Engineering & Agentic AI',
+    phase: 'INDUSTRY & ENTERPRISE ANALYTICS',
+    title: 'Specialist Programmer at Infosys',
+    subtitle: 'Enterprise Demand Module & Bench Analytics Engine',
     era: 'August 2025 — PRESENT [Infosys Specialist Programmer]',
-    story: `Graduated with B.Tech Computer Science and joined Infosys as a Specialist Programmer in August 2025. Bridging solid enterprise development with cutting-edge Agentic AI engineering: building internal telemetry dashboards and automated report engines, autonomous workflows using LangGraph, multi-agent reflection loops, RAG knowledge bases, and scalable full-stack architectures. Focused on high-impact engineering that automates complex human workflows.`,
+    story: `Graduated with B.Tech Computer Science and joined Infosys as a Specialist Programmer in August 2025. Engineered the core Demand Module within the internal enterprise resource management platform using React (TSX), FastAPI, Recharts, and PostgreSQL. Architected 4–5 interactive analytical views visualizing talent on bench, incoming project demands, and unconfirmed allocations, while automating the generation of comprehensive demand-vs-talent fulfillment reports. Focused on building high-performance, resilient enterprise systems.`,
     learningFocus: [
-      'Enterprise Engineering at Scale (Specialist Programmer, Infosys Aug 2025 – Present)',
-      'Agentic Workflows & Multi-Agent Coordination with LangGraph',
-      'Advanced RAG, Vector Stores & Local Inference Engines',
-      'Production Observability, Guardrails & Deterministic Fallbacks',
-      'Full Stack Developer & Agentic AI Engineering Excellence'
+      'Enterprise Demand & Resource Allocation Modeling (Infosys Specialist Programmer)',
+      'Interactive Analytics Engineering with React (TSX) and Recharts',
+      'High-Performance Asynchronous REST Endpoints with FastAPI & PostgreSQL',
+      'Automated Enterprise Report Synthesis & Data Reconciliation',
+      'Production Docker Containerization & Scalable Backend Architectures'
     ],
     whatWasBuilt: [
       {
-        name: 'InterviewBot ("Rachel")',
-        description: 'Interactive AI-powered mock interview bot leveraging fine-tuned open-source LLMs to evaluate resume alignment and confidence.',
-        tech: ['Python', 'FastAPI', 'Fine-Tuned LLM', 'React'],
-        projectId: 'interviewbot-rachel'
-      },
-      {
-        name: 'Autonomous Agentic Workflow Pipelines',
-        description: 'Exploring LangGraph cyclic state machines and multi-agent coordination for complex automated reasoning.',
-        tech: ['LangGraph', 'Python', 'RAG', 'Vector DB']
+        name: 'Demand Module & Bench Analytics Engine',
+        description: 'Engineered 4–5 dynamic Recharts views visualizing bench talent vs open demands and unconfirmed allocations with automated fulfillment reports.',
+        tech: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker'],
+        projectId: 'infosys-dashboard-reporter'
       }
     ],
-    technologiesEncountered: ['LangGraph', 'LangChain', 'vLLM', 'FastAPI', 'Docker', 'RAG', 'Next.js', 'Enterprise Full Stack'],
-    keyChallenges: 'Designing systems that gracefully bridge probabilistic AI capabilities with strict, deterministic software reliability.',
-    lessonLearned: 'The most rewarding engineering journey is one that consistently solves real human friction and never stops questioning assumptions.',
+    technologiesEncountered: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker', 'Python', 'Tailwind CSS'],
+    keyChallenges: 'Designing multi-dimensional SQL aggregation queries across high-velocity allocation states while ensuring instantaneous sub-second chart updates.',
+    lessonLearned: 'The most impactful engineering work transforms complex operational friction into intuitive, data-driven decisions that save teams hundreds of manual hours.',
     visualTheme: {
       accentColor: '#10b981',
       badgeBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',

@@ -11,35 +11,35 @@ export const projectArchive: ProjectCaseStudy[] = [
   {
     id: 'chat-karunya',
     code: '001',
-    title: 'chat.karunya.edu',
-    tagline: 'Institutional ChatGPT-Style AI Platform with Triton & vLLM Serving',
+    title: 'sofie(Chatbot)',
+    tagline: 'Campus AI Platform with Triton Inference Server (vllm_backend) & NeMo Guardrails',
     category: 'AI',
     categories: ['AI', 'WEB', 'BACKEND'],
     featured: true,
     timelineYear: '2024 / Campus AI Deployment',
-    summary: 'A secure, high-throughput campus AI chatbot platform built for Karunya University, utilizing Open WebUI frontend, Triton Inference Server with vLLM model serving, Guardrails moderation, and Graylog observability.',
-    technologies: ['vLLM', 'Triton Server', 'Open WebUI', 'Python', 'FastAPI', 'Guardrails AI', 'Graylog', 'Docker'],
+    summary: 'A secure campus AI chatbot platform built for Karunya University, utilizing Open WebUI frontend, Triton Inference Server with vllm_backend on a multi-GPU 4x L40S cluster, NeMo Guardrails moderation, and Graylog observability.',
+    technologies: ['Triton vllm_backend', 'NeMo Guardrails', '4x L40S GPUs', 'LLaMA Models', 'Open WebUI', 'Python', 'FastAPI', 'Graylog', 'Docker'],
     codeStatus: 'ACADEMIC_IP',
     codeStatusNotice: 'Official Karunya University Infrastructure Project // Institutional Intellectual Property. Deployed on campus private server cluster.',
     collegeContext: 'Built directly for university-wide deployment across Karunya Institute of Technology and Sciences to provide faculty and students with secure, curriculum-aware generative AI.',
-    originStory: 'Started from two powerful catalysts: First, I saw NVIDIA\'s NIM chatbot blueprint and had a debate with a friend where I claimed I could build an equivalent architecture entirely using open-source tools. He challenged me that I couldn\'t pull it off—at that time, I wasn\'t even into AI! Driven purely to prove him wrong, I dove headfirst into Triton Server, vLLM, and Open WebUI. Second, our campus computer labs had strictly blocked public AI tools like ChatGPT and Claude because students were blindly generating assignment code. We needed an in-house AI tutor that knew our curriculum and guided students like a professor—explaining concepts, answering doubts, and breaking down logic without handing over raw copy-paste code.',
-    whyBuilt: 'Built to give 8,000+ students and faculty an official, secure campus AI interface powered by open-source LLMs without recurring API fees, while serving as the official verification engine for 500+ student teams participating in internal Smart India Hackathon (SIH) rounds.',
+    originStory: 'Started from two powerful catalysts: First, I saw NVIDIA\'s NIM chatbot blueprint and had a debate with a friend where I claimed I could build an equivalent architecture entirely using open-source tools. Driven purely to prove him wrong, I dove headfirst into Triton Server with vllm_backend, NeMo Guardrails, and Open WebUI. Second, our campus computer labs had strictly blocked public AI tools like ChatGPT and Claude because students were blindly generating assignment code. We needed an in-house AI tutor that knew our curriculum and guided students like a professor—explaining concepts, answering doubts, and breaking down logic without handing over raw copy-paste code.',
+    whyBuilt: 'Built to give 8,000+ students and faculty an official, secure campus AI interface powered by open-source LLaMA models on multi-GPU 4x L40S hardware without recurring API fees, while serving as the official verification engine for 500+ student teams participating in internal Smart India Hackathon (SIH) rounds.',
     interestingFacts: [
-      'Built initially to win a friendly bet: A friend claimed open-source tools couldn\'t match NVIDIA\'s NIM blueprint. With zero prior AI background, I dove in and proved it was possible.',
-      'Campus labs restricted ChatGPT and Claude to stop raw copy-pasting; our custom tutor mode guides students with conceptual hints without dumping raw code solutions.',
+      'Built initially to prove open-source infrastructure could match NVIDIA NIM architectures using Triton Inference Server with vllm_backend.',
+      'Deployed on multi-GPU 4x L40S hardware with NeMo Guardrails enforcing strict safety boundaries and institutional policies.',
       'Primary institutional production workload: Automatically evaluates and verifies procedure manuals for 500+ student teams participating in internal college-level SIH hackathons where experienced faculty evaluators are scarce.',
-      'Serving LLMs with Triton + vLLM PagedAttention continuous batching allowed multi-user token streaming with 4x higher throughput and minimal VRAM overhead.',
+      'Serving LLaMA models on multi-GPU 4x L40S using Triton Inference Server with vllm_backend allowed responsive multi-user token streaming with zero cloud API dependencies.',
       'Integrated Graylog observability to monitor token generation latency, detect prompt injection attempts, and track GPU thermals in real time.'
     ],
     caseStudy: {
       problem: 'Commercial AI APIs were cost-prohibitive for thousands of students and violated university data privacy protocols for internal exams and proprietary research.',
-      approach: 'Deployed high-speed open-source LLMs inside the campus intranet using vLLM backends orchestrated via Triton Inference Server, fronted by Open WebUI with custom API authentication.',
-      architectureDescription: 'Campus users authenticate through university SSO into Open WebUI. Requests route through a FastAPI moderation layer enforcing Guardrails filters. Valid prompts hit Triton Server utilizing vLLM PagedAttention continuous batching, streaming response tokens back via WebSockets while streaming audit logs to Graylog.',
+      approach: 'Deployed high-speed open-source LLaMA models inside the campus intranet using Triton Inference Server with vllm_backend on a multi-GPU 4x L40S cluster, fronted by Open WebUI with custom API authentication and NeMo Guardrails.',
+      architectureDescription: 'Campus users authenticate through university SSO into Open WebUI. Requests route through a FastAPI moderation layer enforcing NeMo Guardrails filters. Valid prompts hit Triton Server utilizing vllm_backend on 4x L40S GPUs, streaming response tokens back via WebSockets while streaming audit logs to Graylog.',
       architectureNodes: [
         { id: 'users', name: 'Campus Web Clients', type: 'client', description: 'Students and faculty on desktop and mobile' },
         { id: 'webui', name: 'Open WebUI Gateway', type: 'gateway', description: 'Institutional UI & chat session manager' },
-        { id: 'guardrails', name: 'Guardrails & Moderation', type: 'service', description: 'Input filtering, prompt injection defense' },
-        { id: 'triton_vllm', name: 'Triton Server + vLLM', type: 'ai', description: 'GPU-accelerated continuous batching LLM engine' },
+        { id: 'guardrails', name: 'NeMo Guardrails & Moderation', type: 'service', description: 'Input filtering, prompt injection defense, policy rails' },
+        { id: 'triton_vllm', name: 'Triton Server (vllm_backend)', type: 'ai', description: 'Multi-GPU 4x L40S LLaMA continuous batching engine' },
         { id: 'graylog', name: 'Graylog Observability', type: 'database', description: 'Centralized telemetry, latency & audit logging' }
       ],
       architectureFlows: [
@@ -50,20 +50,20 @@ export const projectArchive: ProjectCaseStudy[] = [
         { from: 'triton_vllm', to: 'webui', label: 'SSE Response Token Stream' }
       ],
       challenges: [
-        'Preventing GPU VRAM exhaustion during simultaneous class lab sessions through tuned continuous batching.',
-        'Balancing safety guardrail latency with snappy time-to-first-token streaming.',
-        'Containerizing the full Triton + CUDA runtime within university on-premise hardware constraints.'
+        'Preventing GPU VRAM exhaustion during simultaneous class lab sessions through tuned continuous batching on 4x L40S GPUs.',
+        'Balancing NeMo Guardrail policy checks with responsive streaming latency.',
+        'Containerizing the full Triton + vLLM CUDA runtime within university on-premise hardware constraints.'
       ],
       results: [
         { metric: '100%', label: 'On-Premise University Data Privacy' },
-        { metric: 'Sub-80ms', label: 'Time-to-First-Token Latency' },
+        { metric: '4x L40S', label: 'Multi-GPU Cluster Deployment' },
         { metric: 'Zero Cost', label: 'Zero Recurring External API Fees' }
       ],
-      whatILearned: 'Serving LLMs in production is an infrastructure and systems engineering problem, not just prompt engineering. PagedAttention and proper observability are essential for multi-tenant deployments.',
+      whatILearned: 'Serving LLMs in production is an infrastructure and systems engineering problem, not just prompt engineering. Hardware topology, continuous batching, and proper observability are essential for multi-tenant deployments.',
       decisionLog: [
         {
-          question: 'Why vLLM with Triton instead of plain Ollama or FastAPI?',
-          answer: 'vLLM provides PagedAttention and continuous batching, which increases multi-user throughput by 4x to 10x compared to naive inference wrappers.'
+          question: 'Why Triton Inference Server with vllm_backend instead of plain Ollama or FastAPI?',
+          answer: 'Triton with vllm_backend orchestrates multi-GPU continuous batching across 4x L40S cards with enterprise queue management, outperforming single-worker runners.'
         },
         {
           question: 'Why Graylog for logging?',
@@ -286,13 +286,13 @@ export const projectArchive: ProjectCaseStudy[] = [
     id: 'codetutor',
     code: '005',
     title: 'CodeTutor',
-    tagline: 'Automated Lab Management, Viva Conduction & Evaluation Platform',
+    tagline: 'Automated Lab Management, Viva Conduction & Judge0 Compilation Platform',
     category: 'BACKEND',
     categories: ['BACKEND', 'WEB'],
     featured: true,
     timelineYear: '2024 / Campus Lab Production',
-    summary: 'An educational platform built using Django, Django REST Framework, React, and PostgreSQL for college laboratory management, viva conduction, automated program verification, grading automation, and student academic tracking.',
-    technologies: ['Django', 'Django REST Framework', 'React', 'PostgreSQL', 'Docker', 'Tailwind'],
+    summary: 'An educational platform built using Django, Django REST Framework, React, and PostgreSQL for college laboratory management, viva conduction, and automated program verification using Judge0 for Python, C, C++, and Java. Built an experimental Docker running engine for React and Node.js.',
+    technologies: ['Django', 'Django REST Framework', 'React', 'Judge0', 'PostgreSQL', 'Docker', 'Python', 'Tailwind'],
     codeStatus: 'ACADEMIC_IP',
     codeStatusNotice: 'Department Academic Platform // Developed for Karunya Computer Science Lab Management.',
     collegeContext: 'Created for the Department of Computer Science and Engineering; tested and deployed in production for a real laboratory section of 70 students.',
@@ -300,47 +300,48 @@ export const projectArchive: ProjectCaseStudy[] = [
     whyBuilt: 'Built to digitize and automate the entire university practical lab and examination workflow, reducing faculty grading overhead from days to minutes while eliminating paper lab records.',
     interestingFacts: [
       'Successfully deployed in production in an actual university laboratory of 70 students for live automated code verification and viva conduction.',
-      'Isolated Docker runner executes student code under strict memory (256MB) and CPU timeouts (5s) to safely neutralize infinite loops and malicious fork bombs.',
+      'Integrated Judge0 compilation API for executing and compiling student submissions across Python, C, C++, and Java against test cases.',
+      'Engineered an experimental Docker running engine for React and Node.js applications (kept experimental due to automated frontend rendering verification challenges).',
       'Automated grading rubrics and randomized viva question modules reduced faculty grading time by over 75% for participating batches.',
       'Generated tamper-evident, auditable PDF grade sheets with full test case pass/fail breakdowns for departmental accreditation.'
     ],
     caseStudy: {
       problem: 'Manual lab grading was time-consuming, prone to human error, and provided students with zero immediate feedback on why their code failed edge test cases.',
-      approach: 'Constructed a robust role-based platform (Faculty, Student, Admin) with automated sandboxed program verification, automated grading rubrics, and comprehensive PDF report generation.',
-      architectureDescription: 'React frontend interfaces with a Django REST backend backed by PostgreSQL. Student code submissions are executed inside isolated Docker worker containers with resource limits (CPU/memory), returning instant stdout/stderr and test case assertions.',
+      approach: 'Constructed a robust role-based platform (Faculty, Student, Admin) utilizing Judge0 for automated program verification across Python, C, C++, and Java, automated grading rubrics, and comprehensive PDF report generation.',
+      architectureDescription: 'React frontend interfaces with a Django REST backend backed by PostgreSQL. Student submissions in Python, C, C++, and Java are dispatched to Judge0 for compilation and test case verification, with an experimental Docker runner prototype for React and Node.',
       architectureNodes: [
         { id: 'students', name: 'Student Terminal UI', type: 'client', description: 'Code editor & viva test interface' },
         { id: 'faculty', name: 'Faculty Grading Portal', type: 'client', description: 'Course allocation & progress analytics' },
         { id: 'backend', name: 'Django REST API', type: 'service', description: 'Auth, role-based controls, course logic' },
-        { id: 'sandbox', name: 'Docker Execution Sandbox', type: 'service', description: 'Isolated runner for student code verification' },
-        { id: 'db', name: 'PostgreSQL Database', type: 'database', description: 'Encrypted marks, submissions, and audit trail' }
+        { id: 'judge0', name: 'Judge0 Compilation Engine', type: 'service', description: 'Compiles & evaluates Python, C, C++, Java with test cases' },
+        { id: 'db', name: 'PostgreSQL Database', type: 'database', description: 'Grades, submissions, and audit trail' }
       ],
       architectureFlows: [
         { from: 'students', to: 'backend', label: 'Submit Code / Viva Answers' },
-        { from: 'backend', to: 'sandbox', label: 'Execute with Resource Limits' },
-        { from: 'sandbox', to: 'backend', label: 'Test Case Results & Exit Codes' },
+        { from: 'backend', to: 'judge0', label: 'Compile & Execute Test Cases' },
+        { from: 'judge0', to: 'backend', label: 'Test Case Results & Exit Codes' },
         { from: 'backend', to: 'db', label: 'Store Grades & Feedback' },
         { from: 'backend', to: 'faculty', label: 'Real-Time Batch Dashboard' }
       ],
       challenges: [
-        'Preventing student submissions from running infinite loops or malicious system calls like fork bombs in the sandbox.',
-        'Handling concurrent submissions from 60+ students at the end of a 2-hour lab exam window.',
+        'Orchestrating concurrent compilation requests through Judge0 from 60+ students during lab exam submission windows.',
+        'Solving automated headless rendering verification issues when attempting to run and evaluate student React and Node.js code.',
         'Designing an intuitive viva question randomizer preventing students from copying adjacent screens.'
       ],
       results: [
         { metric: '75%', label: 'Reduction in Faculty Grading Overhead' },
-        { metric: 'Instant', label: 'Student Test Case Feedback' },
+        { metric: '4 Languages', label: 'Python, C, C++, Java via Judge0' },
         { metric: '100%', label: 'Auditable Academic Record Generation' }
       ],
-      whatILearned: 'Building software for educational institutions requires obsessive role-based permissions and strict sandboxing to protect shared lab servers from rogue processes.',
+      whatILearned: 'Building software for educational institutions requires reliable compilation pipelines and clean separation between evaluator services and user-facing portals.',
       decisionLog: [
         {
-          question: 'Why Django REST Framework for this platform?',
-          answer: 'Django offers built-in enterprise authentication, robust ORM schema migrations, and admin controls that accelerated backend development.'
+          question: 'Why Judge0 for code compilation?',
+          answer: 'Judge0 provides a battle-tested compiler pipeline for Python, C, C++, and Java with isolated execution environments and timeout handling.'
         },
         {
-          question: 'What trade-offs were accepted?',
-          answer: 'Code execution sandboxes are constrained to 256MB RAM and 5-second CPU timeouts to guarantee server stability.'
+          question: 'What happened with React and Node execution?',
+          answer: 'We engineered a Docker running engine for React and Node, but left it unreleased in production because verifying dynamic browser rendering and visual output programmatically proved unreliable without a full headless browser test suite.'
         },
         {
           question: 'Why did the first approach fail?',
@@ -418,54 +419,53 @@ export const projectArchive: ProjectCaseStudy[] = [
   {
     id: 'infosys-dashboard-reporter',
     code: '006',
-    title: 'Enterprise Analytics & Automated Report Engine',
-    tagline: 'Internal Telemetry Dashboard & AI-Driven Report Generation',
+    title: 'Enterprise Analytics & Demand Report Engine',
+    tagline: 'Enterprise Demand vs. Bench Visual Analytics & Report Generation Engine',
     category: 'WEB',
-    categories: ['WEB', 'BACKEND', 'AI'],
+    categories: ['WEB', 'BACKEND'],
     featured: true,
     timelineYear: 'Infosys (2025 — Present)',
-    summary: 'Internal enterprise telemetry and business metrics dashboard built at Infosys using React, FastAPI, Node.js, and Agentic AI workflows to synthesize distributed data streams into real-time KPI visuals and automated executive reports.',
-    technologies: ['React', 'FastAPI', 'Node.js', 'LangGraph', 'PostgreSQL', 'Tailwind CSS', 'Docker'],
+    summary: 'Internal enterprise Demand Analytics and resource allocation engine built at Infosys using React (TSX), FastAPI, Recharts, and PostgreSQL. Features 4–5 dynamic analytical views visualizing bench strength, active project demands, and unconfirmed talent allocations with automated demand-vs-talent fulfillment report generation.',
+    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker'],
     codeStatus: 'PROPRIETARY',
     codeStatusNotice: 'Infosys Enterprise Internal Project // Proprietary Intellectual Property.',
-    collegeContext: 'Architected as a Specialist Programmer at Infosys to solve internal analytics friction and automate repetitive report generation across engineering teams.',
-    originStory: 'Engineering leads and project managers were spending multiple hours every sprint manually aggregating deployment logs, ticket velocities, and pipeline health into slide decks and spreadsheets. I designed an interactive telemetry dashboard paired with an autonomous Agentic AI reporting worker that extracts live metrics, computes anomaly deltas, and generates structured executive reports on demand.',
-    whyBuilt: 'Built to provide cross-functional teams with unified real-time visibility and eliminate manual administrative overhead through intelligent data synthesis.',
+    collegeContext: 'Architected as a Specialist Programmer at Infosys within the internal enterprise resource management ecosystem.',
+    originStory: 'Resource managers and delivery leads spent extensive manual hours reconciling talent bench availability against active project skill requirements and unconfirmed allocations. I engineered the Demand Module: a unified visualization and report engine that dynamically charts bench capacity versus open demands and synthesizes comprehensive demand-vs-talent allocation reports.',
+    whyBuilt: 'Built to give leadership instant visual clarity into resource allocation and automate demand fulfillment reports comparing assigned talent versus unallocated bench pools.',
     interestingFacts: [
-      'Engineered multi-dimensional dashboards with sub-second chart re-renders and custom filter dimensions using React and optimized backend aggregation queries.',
-      'Employed Agentic AI loops to synthesize qualitative sprint summaries and performance observations directly into downloadable PDF and Excel summaries.',
-      'Reduced sprint reporting compilation time from 4+ hours to a single automated click.'
+      'Engineered the core Demand Module with 4–5 dynamic Recharts views visualizing bench talent vs. open project demands, talent allocation status, and unconfirmed placements.',
+      'Built automated demand-vs-talent fulfillment reporting: generates detailed breakdowns of assigned talent per demand vs unassigned bench resources.',
+      'Developed with React (TSX) and FastAPI async endpoints backed by optimized PostgreSQL aggregation queries, containerized with Docker.'
     ],
     caseStudy: {
-      problem: 'Distributed engineering telemetry was trapped in siloed databases and issue trackers, forcing managers to assemble reports manually.',
-      approach: 'Built a full-stack dashboard platform featuring unified REST endpoints, optimized SQL caching, and an automated background reporting agent that runs scheduled and ad-hoc aggregations.',
-      architectureDescription: 'React client visualizes metrics via dynamic charts. Backend FastAPI service queries relational databases and message streams, caching aggregates. An agentic report worker compiles markdown and data tables into publication-ready PDF formats.',
+      problem: 'Talent allocation data was scattered across disconnected spreadsheets, making it slow and error-prone to reconcile bench availability with incoming project demands.',
+      approach: 'Built a full-stack analytics engine with React (TSX), Recharts, FastAPI, and PostgreSQL to visualize resource allocation metrics and generate automated demand fulfillment reports.',
+      architectureDescription: 'React (TSX) frontend renders 4–5 real-time Recharts visualizations showing bench counts, active demands, and pending confirmations. FastAPI backend runs high-performance SQL aggregation queries against PostgreSQL to compute allocations and generate exportable reports.',
       architectureNodes: [
-        { id: 'client', name: 'Analytics UI (React)', type: 'client', description: 'Real-time telemetry and KPI drill-down dashboard' },
-        { id: 'api', name: 'FastAPI Gateway', type: 'gateway', description: 'Asynchronous aggregation endpoints and cache coordinator' },
-        { id: 'agent', name: 'Reporting Agent (AI)', type: 'ai', description: 'Synthesizes insights and formats executive summaries' },
-        { id: 'db', name: 'Metrics Repository', type: 'database', description: 'PostgreSQL storage for time-series metrics and logs' }
+        { id: 'client', name: 'Demand Analytics UI (React TSX)', type: 'client', description: 'Interactive Recharts views for bench, demand & allocation metrics' },
+        { id: 'api', name: 'FastAPI Service', type: 'gateway', description: 'Asynchronous aggregation endpoints and report generator' },
+        { id: 'db', name: 'PostgreSQL Database', type: 'database', description: 'Talent profiles, project demands, and allocation mappings' }
       ],
       architectureFlows: [
-        { from: 'client', to: 'api', label: 'Query Filtered Telemetry' },
-        { from: 'api', to: 'db', label: 'Fetch Aggregated Metrics' },
-        { from: 'api', to: 'agent', label: 'Trigger Report Synthesis' },
-        { from: 'agent', to: 'client', label: 'Stream Generated PDF / Charts' }
+        { from: 'client', to: 'api', label: 'Filter Demands / Bench Criteria' },
+        { from: 'api', to: 'db', label: 'Run SQL Aggregations & Joins' },
+        { from: 'db', to: 'api', label: 'Talent & Demand Allocations' },
+        { from: 'api', to: 'client', label: 'Stream Recharts Data & Fulfillment Reports' }
       ],
       challenges: [
-        'Aggregating high-volume time-series events without spiking backend CPU.',
-        'Ensuring strict role-based access control across different management tiers.'
+        'Designing multi-dimensional SQL aggregation queries across dynamic allocation states without backend latency spikes.',
+        'Rendering responsive, multi-series Recharts views on high-density displays for resource planning sessions.'
       ],
       results: [
-        { metric: '75%', label: 'Reporting Overhead Reduction' },
-        { metric: '< 200ms', label: 'Dashboard Query Latency' },
-        { metric: 'Automated', label: 'One-Click Executive Summaries' }
+        { metric: '4–5 Views', label: 'Dynamic Bench & Demand Recharts Visuals' },
+        { metric: '< 200ms', label: 'Aggregation Query Latency' },
+        { metric: 'Automated', label: 'Demand vs Talent Fulfillment Reports' }
       ],
-      whatILearned: 'Enterprise dashboards are only as good as their data aggregation speed and clarity of insights; automating report synthesis frees teams to focus on actual engineering.',
+      whatILearned: 'Clear data visualization combined with fast backend aggregation turns administrative spreadsheet headaches into instant operational decisions.',
       decisionLog: [
         {
-          question: 'Why FastAPI for metrics aggregation?',
-          answer: 'Asynchronous Python handles parallel database queries and external service pings with minimal concurrency overhead.'
+          question: 'Why FastAPI with PostgreSQL for the Demand Module?',
+          answer: 'FastAPI provides high-speed asynchronous endpoint handlers and strict Pydantic data validation for complex resource schemas, while PostgreSQL indexes enable sub-second aggregations across thousands of employee and demand records.'
         }
       ]
     }

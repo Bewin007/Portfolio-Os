@@ -6,11 +6,7 @@ import { GithubIcon } from '../common/BrandIcons';
 import { 
   FileText, 
   ArrowRight, 
-  ExternalLink, 
-  CheckCircle2, 
-  Layers, 
-  Sparkles,
-  GitFork
+  Layers
 } from 'lucide-react';
 
 interface RecruiterFeaturedProjectsProps {
@@ -20,38 +16,45 @@ interface RecruiterFeaturedProjectsProps {
 
 interface FlagshipConfig {
   id: string;
+  displayTitle: string;
   resultOpening: string;
   keyMetrics: { label: string; value: string }[];
-  liveLink?: { label: string; url: string };
+  technologies: string[];
 }
 
 const flagshipConfigs: Record<string, FlagshipConfig> = {
   'chat-karunya': {
     id: 'chat-karunya',
-    resultOpening: 'On-premise AI platform for 8,000+ university users, delivering sub-80ms time-to-first-token with no recurring API cost.',
+    displayTitle: 'sofie(Chatbot)',
+    resultOpening: 'On-premise AI platform for 8,000+ university users powered by Triton vllm_backend and NeMo Guardrails on 4x L40S GPUs.',
     keyMetrics: [
       { value: '8,000+', label: 'Campus Users' },
-      { value: 'Sub-80ms', label: 'Time-to-First-Token' },
+      { value: '4x L40S', label: 'Multi-GPU Cluster' },
       { value: 'Zero Cost', label: 'Recurring API Fees' },
     ],
+    technologies: ['Triton vllm_backend', 'NeMo Guardrails', 'Open WebUI', 'FastAPI', 'Docker'],
   },
   'sih-dns-filter': {
     id: 'sih-dns-filter',
+    displayTitle: 'SIH DNS Threat Filter',
     resultOpening: 'National Grand Finale Finalist (SIH 2023, top 0.1% of 44,000 teams) — high-accuracy packet inspection and DNS threat sinkholing with <5ms lookup overhead.',
     keyMetrics: [
       { value: 'Top 0.1%', label: 'Of 44k National Teams' },
       { value: '97.4%', label: 'Threat Accuracy' },
       { value: '< 5ms', label: 'Lookup Overhead' },
     ],
+    technologies: ['Python', 'Zeek', 'Unbound DNS', 'PCAP Analysis', 'React'],
   },
   'infosys-dashboard-reporter': {
     id: 'infosys-dashboard-reporter',
-    resultOpening: 'Enterprise telemetry and automated AI reporting engine at Infosys, reducing sprint metric compilation from 4+ hours to a single click.',
+    displayTitle: 'Enterprise Analytics & Automated Report Engine',
+    resultOpening: 'Internal enterprise Demand Module at Infosys, delivering interactive Recharts visualizations and automated talent-allocation reports.',
     keyMetrics: [
-      { value: '4+ Hrs → 1 Click', label: 'Report Synthesis' },
-      { value: 'Sub-second', label: 'Query Chart Renders' },
+      { value: 'Demand Module', label: 'Bench & Allocation' },
+      { value: 'Dynamic Visuals', label: 'Recharts Breakdown' },
       { value: 'Production', label: 'Infosys Enterprise Tool' },
     ],
+    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker'],
   },
 };
 
@@ -91,15 +94,17 @@ export const RecruiterFeaturedProjects: React.FC<RecruiterFeaturedProjectsProps>
         </div>
       </div>
 
-      {/* 3 Compact, Result-Led Cards */}
+      {/* 3 Compact, Result-Led Cards without CASE numbers */}
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-6">
         {topProjects.map((project, idx) => {
           const cfg = flagshipConfigs[project.id];
+          const title = cfg?.displayTitle || project.title;
           const opening = cfg?.resultOpening || project.tagline;
           const metrics = cfg?.keyMetrics || [
             { value: 'Verified', label: 'Outcome' },
             { value: 'High', label: 'Performance' },
           ];
+          const techList = cfg?.technologies || project.technologies.slice(0, 4);
 
           return (
             <motion.div
@@ -110,15 +115,17 @@ export const RecruiterFeaturedProjects: React.FC<RecruiterFeaturedProjectsProps>
               className="p-6 rounded-3xl bg-neutral-950/80 border border-white/10 hover:border-cyan-500/40 transition-all duration-300 flex flex-col justify-between group shadow-xl"
             >
               <div>
-                {/* Header: CASE Code & Category */}
+                {/* Header: Clean Category Badge & Timeline Year (CASE numbers removed) */}
                 <div className="flex items-center justify-between gap-2 pb-3 mb-4 border-b border-white/5 font-mono text-xs text-neutral-400">
-                  <span className="text-neutral-500 font-bold">CASE // {project.code}</span>
                   <span className="text-cyan-400 font-semibold">{project.category}</span>
+                  <span className="text-neutral-500 text-[11px] truncate max-w-[200px]">
+                    {project.timelineYear}
+                  </span>
                 </div>
 
                 {/* Title */}
                 <h3 className="text-xl font-display font-bold text-white group-hover:text-cyan-300 transition-colors mb-2.5">
-                  {project.title}
+                  {title}
                 </h3>
 
                 {/* Result-Led One-Line Opening Description */}
@@ -145,7 +152,7 @@ export const RecruiterFeaturedProjects: React.FC<RecruiterFeaturedProjectsProps>
 
                 {/* Tech Stack Chips */}
                 <div className="flex flex-wrap gap-1.5 mb-6">
-                  {project.technologies.slice(0, 4).map((tech) => (
+                  {techList.map((tech) => (
                     <span
                       key={tech}
                       className="px-2 py-0.5 rounded-md text-[11px] font-mono bg-neutral-900 border border-white/5 text-neutral-300"

@@ -30,9 +30,9 @@ export const engineeringProcessData: EngineeringProcessData = {
       principle: 'Clarify hardware limits, latency SLAs, data privacy requirements, and resource boundaries upfront rather than patching them in production.',
       projectExamples: [
         {
-          project: 'chat.karunya.edu',
+          project: 'sofie(Chatbot)',
           badge: 'Campus AI',
-          detail: 'Constrained by on-premise GPU VRAM capacity and institutional privacy protocols strictly forbidding external API data transmission.',
+          detail: 'Constrained by on-premise 4x L40S GPU capacity and institutional privacy protocols strictly forbidding external API data transmission.',
         },
         {
           project: 'SIH DNS Threat Filter',
@@ -40,9 +40,9 @@ export const engineeringProcessData: EngineeringProcessData = {
           detail: 'Enforced a strict sub-5ms lookup latency SLA so packet analysis never added perceptible delay to client web browsing.',
         },
         {
-          project: 'CodeTutor Sandbox',
+          project: 'CodeTutor (Judge0 Engine)',
           badge: 'Lab Platform',
-          detail: 'Hard resource limits (256MB RAM / 5s CPU execution cap) required to safely execute untrusted student submissions.',
+          detail: 'Offloaded student code execution to Judge0 for Python, C, C++, and Java with isolated Docker prototypes for modern stacks.',
         },
       ],
       keyTakeaway: 'A clear boundary definition eliminates 80% of downstream architecture rework.',
@@ -55,9 +55,9 @@ export const engineeringProcessData: EngineeringProcessData = {
       principle: 'Structure systems into modular, asynchronously decoupled components with clean data contracts and appropriate caching layers.',
       projectExamples: [
         {
-          project: 'chat.karunya.edu',
-          badge: 'Triton + vLLM',
-          detail: 'Decoupled Open WebUI frontend from a FastAPI moderation layer and Triton Inference Server with vLLM PagedAttention continuous batching for 4x higher throughput.',
+          project: 'sofie(Chatbot)',
+          badge: 'Triton vllm_backend',
+          detail: 'Decoupled Open WebUI frontend from NeMo Guardrails moderation and Triton Inference Server with vllm_backend on multi-GPU 4x L40S.',
         },
         {
           project: 'SIH DNS Threat Filter',
@@ -65,9 +65,9 @@ export const engineeringProcessData: EngineeringProcessData = {
           detail: 'Unbound DNS caching resolver tapped by Zeek protocol inspection and async Python queues to prevent socket buffer packet drops.',
         },
         {
-          project: 'Infosys Enterprise Reporter',
-          badge: 'Enterprise Telemetry',
-          detail: 'Asynchronous FastAPI aggregation endpoints with PostgreSQL query pooling decoupled from LangGraph stateful report workers.',
+          project: 'Infosys Demand Analytics Engine',
+          badge: 'Enterprise Analytics',
+          detail: 'Asynchronous FastAPI aggregation endpoints with PostgreSQL query pooling driving dynamic Recharts visualizations of bench vs. demand talent allocation.',
         },
       ],
       keyTakeaway: 'Decoupled architectures allow individual components to fail or scale independently without taking down the platform.',
@@ -85,9 +85,9 @@ export const engineeringProcessData: EngineeringProcessData = {
           detail: 'When the ML model misclassified X.com 6 hours before jury review, built a 3-hour async crawler fallback checking live metadata in <350ms to dynamically override false positives.',
         },
         {
-          project: 'CodeTutor Sandboxing',
+          project: 'CodeTutor Compiler Routing',
           badge: 'Security',
-          detail: 'Replaced vulnerable in-process execution with isolated Docker containers that safely neutralize fork bombs and while(1) infinite loops.',
+          detail: 'Integrated Judge0 compilation API for Python, C, C++, and Java, isolating student runs from the host application server.',
         },
         {
           project: 'RAG Endpoint Firewall',
@@ -105,9 +105,9 @@ export const engineeringProcessData: EngineeringProcessData = {
       principle: 'Confirm production success through measurable throughput, latency profiles, reliability numbers, and user adoption.',
       projectExamples: [
         {
-          project: 'chat.karunya.edu',
+          project: 'sofie(Chatbot)',
           badge: '8,000+ Users',
-          detail: 'Delivered sub-80ms time-to-first-token with zero recurring API costs, evaluating 500+ student teams in internal SIH hackathons.',
+          detail: 'Eliminated recurring external API costs while serving 8,000+ campus users and evaluating 500+ student teams in internal SIH hackathons on 4x L40S GPUs.',
         },
         {
           project: 'SIH DNS Threat Filter',
@@ -115,9 +115,9 @@ export const engineeringProcessData: EngineeringProcessData = {
           detail: 'Achieved 97.4% DGA threat detection accuracy with <5ms clean query overhead, earning National Grand Finale Finalist honors.',
         },
         {
-          project: 'Infosys Enterprise Reporter',
-          badge: 'Production Tool',
-          detail: 'Reduced sprint engineering report turnaround from 4+ hours of manual aggregation to a single automated click.',
+          project: 'Infosys Demand Analytics Engine',
+          badge: 'Demand Analytics',
+          detail: 'Automated demand-vs-talent fulfillment reporting across 4–5 analytical views, giving management instant clarity on bench utilization.',
         },
       ],
       keyTakeaway: 'Engineering is only complete when verified by production metrics.',
