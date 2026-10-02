@@ -103,7 +103,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
 
       case 'cat':
         if (arg === 'journey') {
-          output = 'Development Journey: From 2021 Cisco networking & computer vision to 2023 National Hackathons (SIH 2023 Grand Finale DNS filtering, Kavach 2023 Grand Finale Forensics) and 2024 campus AI deployment (chat.karunya.edu on vLLM/Triton) to Specialist Programmer at Infosys.';
+          output = 'Development Journey: From 2021 Cisco networking & computer vision to 2023 National Hackathons (SIH 2023 Grand Finale DNS filtering, Kavach 2023 Grand Finale Forensics) and 2024 campus AI deployment (sofie(Chatbot) on vLLM/Triton) to Specialist Programmer at Infosys.';
         } else if (arg === 'philosophy') {
           output = '"Building systems. Breaking assumptions. Learning continuously. Real software solves real friction."';
         } else if (arg === 'stack') {
@@ -122,7 +122,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
       case 'projects':
         output = (
           <div className="space-y-1">
-            <div>[001] chat.karunya.edu — Campus AI Platform (Triton, vLLM, Open WebUI)</div>
+            <div>[001] sofie(Chatbot) — Campus AI Platform (Triton, vLLM, Open WebUI)</div>
             <div>[002] SIH DNS Filter — Threat Intelligence (Zeek, Unbound, Grafana, ML)</div>
             <div>[003] RAG Endpoint Firewall — Autonomous Rule Agent (SIH 2024, iptables)</div>
             <div>[004] Hardware Forensic Suite — Intel NUC Forensics (Kavach 2023 Finalist)</div>

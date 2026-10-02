@@ -12,7 +12,7 @@ export const buildLogEntries: BuildLogEntry[] = [
     id: 'log-01',
     timestamp: '[2024.12]',
     category: 'PRODUCTION',
-    title: 'Deployed chat.karunya.edu Campus AI on Triton + vLLM',
+    title: 'Deployed sofie(Chatbot) Campus AI on Triton + vLLM',
     summary: 'Orchestrated the official private ChatGPT-style platform for Karunya University using Open WebUI, Triton Inference Server, and vLLM PagedAttention.',
     details: 'Configured continuous batching to maximize multi-user concurrency on university GPU hardware. Added Guardrails AI for academic integrity moderation and Graylog for real-time prompt telemetry.',
     tags: ['vLLM', 'Triton Server', 'FastAPI', 'Open WebUI', 'AI Platforms']

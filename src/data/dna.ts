@@ -32,7 +32,7 @@ export const engineeringDnaNodes: DnaDomainNode[] = [
     color: '#38bdf8', // Sky
     summary: 'Orchestrating high-throughput model inference using Triton Inference Server, vLLM continuous batching, RAG architectures, and Guardrails AI moderation.',
     technologies: ['vLLM', 'Triton Server', 'Open WebUI', 'FastAPI', 'RAG', 'PagedAttention', 'Graylog'],
-    timelineEra: 'chat.karunya.edu → SIH 2024 → Present',
+    timelineEra: 'sofie(Chatbot) → SIH 2024 → Present',
     philosophy: 'Serving AI at scale is an infrastructure discipline. Low latency requires PagedAttention, smart batching, and strict deterministic guardrails.',
     connections: ['agentic-ai', 'backend', 'security', 'devops']
   },
@@ -102,7 +102,7 @@ export const engineeringDnaNodes: DnaDomainNode[] = [
     color: '#10b981', // Emerald
     summary: 'Containerization with Docker, reverse proxies with Nginx, centralized telemetry with Graylog, and real-time dashboards with Grafana.',
     technologies: ['Docker', 'Nginx', 'Graylog', 'Grafana', 'Git', 'Linux Shell', 'JupyterHub'],
-    timelineEra: 'KHacks Lead → SIH 2023 → chat.karunya.edu',
+    timelineEra: 'KHacks Lead → SIH 2023 → sofie(Chatbot)',
     philosophy: 'If you cannot measure it in real-time, you cannot keep it reliable. Observability and reproducible containers are foundational.',
     connections: ['agentic-ai', 'ai-serving', 'security', 'backend']
   }

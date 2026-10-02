@@ -7,25 +7,32 @@ export const EducationSection: React.FC = () => {
 
   const honors = [
     {
-      title: 'Smart India Hackathon (SIH) 2023',
+      title: 'Smart India Hackathon (SIH) 2023 · Dec 2023',
       result: 'National Grand Finale Finalist',
-      context: 'Selected out of 44,000 national teams across India (Gujarat Finals, Ministry of Education / AICTE)',
+      context: 'Selected out of 44,000 national teams across India (Gujarat Finals, Ministry of Education / AICTE / ISRO PS SIH1524, Team NetOptics)',
       icon: Trophy,
       accent: 'text-amber-400 border-amber-500/20 bg-amber-950/20',
     },
     {
-      title: 'KAVACH 2023 Cybersecurity Hackathon',
+      title: 'KAVACH 2023 Cybersecurity Hackathon · Aug 2023',
       result: 'National Grand Finale Finalist',
       context: 'Selected out of 3,800 national teams across India (Odisha Finals, AICTE & MoE)',
       icon: ShieldAlert,
       accent: 'text-emerald-400 border-emerald-500/20 bg-emerald-950/20',
     },
     {
-      title: 'Tamil Nadu Police Hackathon 2023',
+      title: 'Tamil Nadu Police Hackathon 2023 · March 2023',
       result: 'State Grand Finale Finalist',
-      context: 'Selected out of 300 state teams (Chennai Finals, Tamil Nadu Police Department)',
+      context: 'Team T3tra / Project SocialEye (OSINT & Video Forensics). Selected out of 300 state teams (Chennai Finals, TN Police, March 28–29, 2023)',
       icon: ShieldCheck,
       accent: 'text-sky-400 border-sky-500/20 bg-sky-950/20',
+    },
+    {
+      title: 'Smart India Hackathon (SIH) 2024 · Oct 2024',
+      result: 'Institutional College Finalist',
+      context: "Team Night's Watch / PS 1741: Centralized Application-Context Aware Firewall Agent via Hybrid RAG",
+      icon: Trophy,
+      accent: 'text-purple-400 border-purple-500/20 bg-purple-950/20',
     },
   ];
 

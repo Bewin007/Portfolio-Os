@@ -217,7 +217,7 @@ export const technologyEras: EraTechMilestone[] = [
         introducedIn: '2024',
         proficiencyLevel: 'Building With',
         icon: '⚡',
-        description: 'High-throughput LLM model serving, continuous batching, and low-latency token streaming for chat.karunya.edu.'
+        description: 'High-throughput LLM model serving, continuous batching, and low-latency token streaming for sofie(Chatbot).'
       },
       {
         name: 'Triton Inference Server',

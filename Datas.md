@@ -1,132 +1,191 @@
-# BEWIN.OS // Portfolio Master Data & System Dossier (`Datas.md`)
+# Master Engineering Dossier & System Knowledge Base (`Datas.md`)
 
-> **System Status:** LIVE & FULLY SYNCHRONIZED  
-> **Current Version:** `BEWIN.OS v3.0.0` — Specialist Programmer @ Infosys · Full Stack Developer · Agentic AI Engineer  
-> **Repository:** `Portfolio New`
+> **Document Purpose:** Single source of truth for Bewin Felix's engineering achievements, hackathons, verified technical roles, and project architectures. Maintained as a structured reference for drafting targeted resumes, technical portfolios, and interview talking points.  
+> **Last Updated:** October 2026 · Portfolio Version: `v1.0.1`  
+> **Current Role:** Specialist Programmer at Infosys (August 2025 – Present)  
+> **Target Roles:** Full Stack Developer · Backend / Distributed Systems Engineer · GenAI / LLM Platform Engineer  
 
 ---
 
-## 1. Executive Identity & Credentials
+## 1. Executive Bio & Contact
 
 * **Full Name:** Bewin Felix R A
-* **Current Professional Role:** **Specialist Programmer at Infosys** (August 2025 – Present)
-* **Target Roles:** **Full Stack Developer** · **Agentic AI Engineer**
-* **Education:** **Karunya Institute of Technology and Sciences, Coimbatore** — B.Tech Computer Science and Engineering (2021 – 2025)
-* **Contact & Channels:**
+* **Current Title:** Specialist Programmer, Infosys
+* **Education:** B.Tech in Computer Science and Engineering (2021 – 2025), Karunya Institute of Technology and Sciences, Coimbatore
+* **Location:** Coimbatore / Nagercoil, India · Open to Relocate / Remote
+* **Contact:**
   * **Email:** `biwinfelix@gmail.com`
   * **Phone:** `+91 7598393250`
-  * **Location:** Coimbatore / Nagercoil, India · Open to Relocate / Remote
   * **LinkedIn:** [linkedin.com/in/bewin-felix-4153a9232](https://linkedin.com/in/bewin-felix-4153a9232)
-  * **GitHub Profile:** [github.com/Bewin007](https://github.com/Bewin007) *(All project cards open deep-dive origin dossiers instead of navigating away)*
-* **Verified Hackathon & Competition Credentials:**
-  * 🏆 **Smart India Hackathon (SIH) 2023:** **National Grand Finale Finalist** (Gujarat Finals, Ministry of Education / AICTE) — Selected from 44,000 national teams.
-  * 🛡️ **KAVACH 2023 Cybersecurity Hackathon:** **National Grand Finale Finalist** (Odisha Finals, AICTE & Ministry of Education) — Selected from 3,800 national teams.
-  * 🚓 **Tamil Nadu Police (TN-Police) Hackathon 2023:** **State Grand Finale Finalist** (Chennai Finals, Tamil Nadu Police Department) — Selected from 300 state teams.
-  * 🎯 **Smart India Hackathon (SIH) 2024:** **College-Level Finalist** (Karunya Institutional Selection, evaluated at institutional level).
-  * 🌐 **Google Solution Challenge 2024:** Regional e-library submission (Multilingual PDF Translation via Gemini API).
+  * **GitHub:** [github.com/Bewin007](https://github.com/Bewin007)
+* **Summary Statement:**
+  > Full-stack and systems engineer with deep expertise in scalable backend services (FastAPI, Django, PostgreSQL, Docker), interactive frontend interfaces (React TSX, Recharts), and high-throughput generative AI infrastructure (Triton Inference Server with `vllm_backend`, NeMo Guardrails, Milvus). Proven track record across national hackathons (Smart India Hackathon 2023 National Finalist, KAVACH 2023 Finalist, TN Police Hackathon Finalist) and campus-scale production platforms serving 8,000+ users.
 
 ---
 
-## 2. Core Competencies & Real Tech Stack
+## 2. Technical Stack Directory
 
-*(All fictitious/irrelevant technologies like Go, Rust, Kafka, and ClickHouse have been removed.)*
+### Languages
+* **Primary:** Python (Advanced), TypeScript, JavaScript (ES6+), SQL
+* *(Note: Java and C/C++ have been intentionally removed from primary technical stack as per current focus)*
 
-* **Languages & Core:** Python (Advanced), TypeScript / JavaScript (ES6+), SQL, C / C++, HTML5, Modern CSS, Tailwind CSS
-* **Full Stack & Backend:** React.js, Node.js, Express, Django & Django REST Framework, FastAPI, PostgreSQL, MongoDB, RESTful APIs
-* **Agentic AI & Serving:** LangGraph (Cyclic State Machines & Autonomous Agent Loops), LangChain & Advanced RAG, vLLM (PagedAttention Serving), Triton Inference Server, Open WebUI, Deterministic Guardrails, Prompt Engineering & System Personas
-* **DevOps, Security & Tools:** Docker Containerization (Conducted workshops for 250+ students as KHacks Lead), Linux Shell / Bash, Zeek (Bro) Network Analysis, Unbound DNS Server, Graylog Telemetry, Grafana Dashboards, Git / GitHub, Postman
+### Frontend Development
+* **Libraries & Frameworks:** React.js (TSX), Vite, Tailwind CSS, Recharts (Data Visualizations), HTML5, Modern CSS3, Material UI
+* *(Note: Next.js has been intentionally removed)*
 
----
+### Backend & Distributed Systems
+* **Frameworks & Runtimes:** FastAPI (Async/Pydantic), Django, Django REST Framework, Node.js, Express.js
+* **Architecture:** RESTful APIs, Asynchronous Queues, Service Isolation, Bitwise Algorithms, Linux System Daemons
 
-## 3. Explaining the 4 Deep-Dive Sections
+### Databases, Storage & Vector
+* **Relational:** PostgreSQL (Complex Joins, Aggregations, Index Optimization)
+* **NoSQL:** MongoDB
+* **Vector Store:** **Milvus** (Dense vector embeddings for hybrid retrieval)
+* **Caching:** Redis
 
-You asked:
-> *"what's the data in How I Solve Hard Problems, The Experiment Lab, System Build Log, Current State & Exploration i lost access to all this project i did during my clg days and it's got removed from it now coz i work and my company don't promote moonlighting"*
+### Generative AI & Inference Systems
+* **Inference Serving:** Triton Inference Server with `vllm_backend` (`triton-inference-server/vllm_backend`)
+* **Hardware Deployments:** Multi-GPU `4x L40S` cluster
+* **Safety & Rails:** NeMo Guardrails (NVIDIA), Pydantic Schema Validation
+* **Architectures:** Hybrid Semantic Retrieval (BM25 + Milvus dense vectors), Cross-Encoder Re-rankers, Corrective RAG (CRAG), Agent State Machines
+* **Interfaces & Ops:** Open WebUI, Graylog (Token & Latency Observability)
 
-Here is the exact breakdown of what each of these 4 sections does and how it is grounded strictly in your real, authorized achievements:
-
-### 1. "How I Solve Hard Problems" (`ProblemSolving.tsx`)
-* **What it is:** Demonstrates systematic, step-by-step engineering thinking: `PROBLEM → EXPERIMENT → ITERATION → SOLUTION → LESSON`.
-* **The Live Real Story:** We replaced the generic database scenario with your **SIH 2023 Gujarat Grand Finale 2:00 PM Emergency Hackathon Sprint**:
-  * *Problem:* 6 hours before the 8:00 PM deadline, the ML model misclassified Twitter/X.com and educational domains as adult content.
-  * *Experiment:* Attempted model retraining, but verified it would take 5+ hours on competition laptops with high regression risk.
-  * *Iteration:* Conceived a dynamic secondary verification layer—an asynchronous background web crawler.
-  * *Solution:* In a 3-hour sprint, built an async crawler with `httpx` and `BeautifulSoup` that inspects live webpage titles and meta tags in under 350ms, dynamically overriding false positives before the jury presentation.
-  * *Lesson:* Probabilistic AI models need deterministic fallback layers in production.
-
-### 2. "The Experiment Lab" (`TheExperimentLab.tsx`)
-* **What it is:** Interactive, client-side computer science simulations demonstrating how fundamental algorithmic mechanisms work under the hood.
-* **Why it's safe:** These are **pure educational interactive visualizers**, NOT commercial projects or client code. They represent foundational computer science curiosity:
-  1. *Token Bucket Rate Limiter Simulator:* Interactive canvas visualizing token replenishment, burst capacity, and drop dynamics.
-  2. *Semantic Tokenizer & Vector Projection Visualizer:* Interactive sandbox demonstrating high-dimensional cosine distance and semantic clustering.
-  3. *Heap Memory Allocator Visualizer:* Simulating First-Fit vs Best-Fit dynamic memory block allocations and free-list coalescing.
-
-### 3. "System Build Log" (`SystemBuildLog.tsx`)
-* **What it is:** A chronological engineering changelog showcasing your real academic milestones, hackathons, and campus infrastructure deployments:
-  * `[2024.12]` Deployed `chat.karunya.edu` campus AI on Triton + vLLM.
-  * `[2024.09]` SIH 2024 College-Level Finalist with RAG Endpoint Firewall Agent.
-  * `[2024.06]` Engineered `CodeTutor` platform deployed in a real lab of 70 students.
-  * `[2024.02]` Google Solution Challenge: Gemini API PDF Book Translation.
-  * `[2023.12]` SIH 2023 National Grand Finale Finalist in Gujarat.
-  * `[2023.08]` KAVACH 2023 National Grand Finale Finalist in Odisha.
-  * `[2023.03]` TN-Police 2023 State Grand Finale Finalist in Chennai.
-  * `[2022.05]` Cisco Python Programmer Internship.
-
-### 4. "Current State & Exploration" (`CurrentState.tsx`)
-* **What it is:** A transparent, forward-looking showcase of your active engineering frontiers in **Modern AI, Agentic AI, and High-Throughput Serving** (rather than past college projects or security/cryptography).
-* **The 3 Live Exploration Frontiers:**
-  1. *Autonomous Multi-Agent State Machines (BUILDING):* Architecting stateful agent graphs in LangGraph with reflection loops, critique nodes, and bounded tool execution.
-  2. *Hybrid Semantic Retrieval & Context Optimization (EXPLORING):* Deep RAG architectures combining BM25 + dense vector embeddings, Cross-Encoder re-rankers, and Self-Reflective RAG (CRAG) for hallucination suppression.
-  3. *Local LLM Inference & High-Throughput Serving (LEARNING):* Benchmark testing vLLM PagedAttention continuous batching, KV-cache tuning, and AWQ/GGUF quantization on constrained hardware.
-* **Why it aligns with company policy:** It explicitly documents your active professional role as **Specialist Programmer at Infosys** (internal telemetry dashboards and automated report engines) alongside self-directed learning in Agentic AI, with **zero moonlighting, zero freelance contracts, and zero external commercial IP**.
+### Infrastructure & DevOps
+* **Containers & Orchestration:** Docker, Docker Compose, Kubernetes, Nginx
+* **Operating Systems:** Linux (Ubuntu/Debian), Shell/Bash Scripting
+* **Network & Security Tooling:** Zeek (Bro) Network Analysis, Unbound DNS Resolver, Wireshark / TShark, Volatility (Memory Forensics), Linux `iptables`
+* *(Note: Traefik has been intentionally removed)*
 
 ---
 
-## 4. Complete Project Directory (14 Live Projects)
+## 3. Verified Hackathons & Competitions Timeline
 
-All projects are organized across domain categories with no empty filters:
-
-| # | Project Name | Primary Tag | Domain Categories | Highlight? | Real Timeline Year |
-|---|---|---|---|:---:|---|
-| **001** | `chat.karunya.edu` | Triton + vLLM Serving | `AI`, `WEB`, `BACKEND` | ★ | `2024 / Campus AI Deployment` |
-| **002** | `SIH DNS Threat Filter` | Zeek + Unbound DNS | `SYSTEMS`, `AI`, `BACKEND` | ★ | `2023 / SIH Grand Finale Finalist` |
-| **003** | `RAG Endpoint Firewall Agent` | RAG + iptables Daemon | `AI`, `SYSTEMS`, `BACKEND` | ★ | `2024 / SIH College Finalist` |
-| **004** | `CodeTutor` | 70-Student Lab Evaluator | `BACKEND`, `WEB` | ★ | `2024 / Campus Lab Production` |
-| **005** | `Hardware Forensic Suite` | Portable Intel NUC Suite | `SYSTEMS`, `BACKEND` | ★ | `2023 / Kavach Grand Finale Finalist` |
-| **006** | `Infosys Enterprise Reporter` | Telemetry Dashboard & AI | `WEB`, `BACKEND`, `AI` | ★ | `2025 — Present / Infosys Enterprise` |
-| **007** | `InterviewBot ("Rachel")` | Fine-Tuned Placement AI | `AI`, `WEB` | | `2024 / Placement AI System` |
-| **008** | `Gemini Multilingual PDF Library` | Google Solution Challenge | `AI`, `WEB` | | `2023 / Google Solution Challenge` |
-| **009** | `CISCO Subnet Validator` | Bitwise IPv4/IPv6 Engine | `BACKEND`, `SYSTEMS` | | `2021 / Cisco Internship` |
-| **010** | `Smart Karunya Campus CMS` | Enterprise Drupal Portals | `WEB`, `BACKEND` | | `2023 / CTC Karunya` |
-| **011** | `CV Posture & Rep Tracker` | OpenCV Kinematics | `AI` | | `2021 / Computer Vision Lab` |
-| **012** | `YouTube Sentiment Analyzer` | Comment Polarity NLP | `AI`, `WEB` | | `2022 / NLP Project` |
-| **013** | `Aptitutor` | AI Placement Practice | `AI`, `WEB`, `BACKEND` | | `2024 / Placement System` |
-| **014** | `Guided Project Platform` | Student Sprint Roadmaps | `WEB`, `BACKEND` | | `2023 — 2024 / Campus Platform` |
+| Event | Date | Location / Authority | Team & Problem Statement | Project Name & Solution | Result / Level |
+|---|---|---|---|---|---|
+| **Tamil Nadu Police Hackathon 2023** | **March 28–29, 2023** | Chennai Finals · Tamil Nadu Police Department | **Team T3tra** | **SocialEye**: YouTube OSINT & video forensic analysis engine for cybercrime investigators | **State Grand Finale Finalist** (Top 300 state teams) |
+| **KAVACH 2023 Cybersecurity Hackathon** | **August 2023** | Odisha Grand Finale · AICTE & Ministry of Education, Govt of India | Cybercrime & Digital Forensics | **Hardware Forensic Suite**: Portable virtualized Intel NUC running Volatility, Sleuth Kit, and TShark with court-admissible PDF reports | **National Grand Finale Finalist** (Selected out of 3,800 national teams) |
+| **Smart India Hackathon (SIH) 2023** | **December 2023** | Gujarat Grand Finale · AICTE & MoE / ISRO | **Team NetOptics** · ISRO Problem Statement **SIH1524** | **SIH DNS Threat Filter**: Real-time packet tap with Zeek, Unbound DNS caching, DGA ML detection, Grafana dashboard, and 6-hr async crawler fallback | **National Grand Finale Finalist** (Top 0.1% out of 44,000 national teams) |
+| **Smart India Hackathon (SIH) 2024** | **October 2024** | Karunya University Institutional Selection | **Team Night's Watch** · Problem Statement **1741** | **RAG Endpoint Firewall Agent**: Centralized application-context aware firewall daemon using hybrid RAG (Milvus) to dynamically synthesize verified Linux iptables rules | **Institutional College Finalist** |
 
 ---
 
-## 5. Live Architecture & UX Improvements Completed
+## 4. Leadership, Community & Campus Career
 
-1. **Role Title Updated Everywhere:** "Specialist Programmer @ Infosys" is consistently displayed across the Hero, Navigation, Recruiter View, Timeline, and Ticker.
-2. **Timeline Shifted to Calendar Years:** Replaced generic "Year 01, Year 02" with actual calendar milestones: **`2021`**, **`2022`**, **`2023`**, **`2024`**, and **`2025 – PRESENT`**.
-3. **Engineering DNA Constellation:** Added dedicated **Agentic AI Systems** node (`LangGraph`, cyclic reasoning loops, tool calling, reflection states) as the default focused node.
-4. **Ticker Overflow Fix:** Built a continuous `@keyframes marquee` CSS engine with edge gradient masks and hover-pause, ensuring that the 3rd dispatch point and all subsequent text scroll smoothly without clipping.
-5. **Project Archive Filtering:** "★ HIGHLIGHTS" is the default filter (showing your 6 flagship systems), with dynamic count badges for `AI & AGENTIC` (8), `BACKEND` (8), `WEB` (8), and `SYSTEMS & SECURITY` (4).
-6. **Case Study Modal Portaled to Root:** Uses React `createPortal(..., document.body)` with `z-[9999]`, safe top padding, and background scroll locking to eliminate any navbar overlap.
+### KHacks (Student-Run Organization · Motto: "Learn, Build, Compete")
+* **July 2022:** Joined KHacks as a contributing member.
+* **December 2022:** Elevated to **Core Team Member**.
+  * Conducted multiple technical workshops (averaging **2–4 workshops per month**) with **50–300+ participants** per session depending on venue, covering Docker containerization, Git workflows, and backend architectures for students across schools and colleges.
+* **August – September 2023:** **Founder & Head of Web & App Development Club**.
+  * Planned and executed the club's comprehensive roadmap.
+  * Trained **200+ engineering students** in modern web development, actively encouraging and mentoring them into competitive hackathons and internal university development projects.
+* **December 2024:** Transitioned to **Mentor**.
+  * Voluntarily stepped down as the active executive lead to establish succession and empower the next generation of club leadership, continuing to serve as technical advisor.
+
+### Karunya "Earn While You Learn" Scheme (2023 – 2025)
+* Participated during summer breaks (2023–2025) in Karunya's competitive, paid student engineering initiative.
+* Led student development teams delivering mission-critical internal university web tools and services, bridging academic theory with production deployment constraints.
+
+### Karunya Computer Technology Center (CTC) Summer Internships
+* **2022–2023 Summer:**
+  * Explored laboratory virtualization systems, analyzing hardware and software reuse feasibility and constraints across university computer labs.
+  * Initiated the **Smart Karunya** project: architected a centralized campus digital twin proof-of-concept to capture air pollution, weather forecasting, soil moisture, and electricity billing metrics. Spent 50 days gathering technical documentation and building initial POCs.
+* **2024–2025 Summer:**
+  * Explored a ground-up redesign of the primary campus web portal by heavily customizing Drupal templates. (Later shelved due to institutional budget and resource allocation).
 
 ---
 
-## 6. Questions & Clarifications for You to Review
+## 5. Flagship Projects Deep Dive
 
-Please review these questions whenever you're ready to share further details:
+### 1. `sofie(Chatbot)` (Formerly `chat.karunya.edu`)
+* **Role:** Lead Architect & Systems Engineer
+* **Scope:** Campus-wide private AI chatbot platform serving **8,000+ university students, faculty, and research labs**.
+* **Key Architecture & Technologies:**
+  * **Inference Serving:** Triton Inference Server with `vllm_backend` (`https://github.com/triton-inference-server/vllm_backend`) deployed on a private multi-GPU **4x L40S** server cluster.
+  * **Safety Rails:** **NeMo Guardrails** enforcing strict institutional guidelines, prompt injection suppression, and student assignment compliance (preventing raw copy-paste code while guiding conceptual problem-solving).
+  * **Frontend & Gateways:** Open WebUI containerized with custom university SSO and FastAPI middleware.
+  * **Observability:** Centralized Graylog telemetry monitoring token generation latencies, GPU temperatures, and safety tripwires.
+* **Key Workload:** Automatically evaluated and verified technical procedure manuals for **500+ student teams** participating in internal college-level SIH hackathons where experienced faculty evaluators were scarce.
+* **Metrics / Outcomes:** 100% on-premise university data privacy; zero recurring cloud API subscription costs; resilient continuous batching across 4x L40S GPUs. *(Note: All previous "sub-80ms" claims have been removed).*
 
-1. **Aptitutor Details:**
-   - Did Aptitutor focus primarily on placement aptitude (Quantitative, Logical, Verbal), or did it also have technical coding MCQ practice?
-   - Was it used by specific student clubs or departmental batches at Karunya?
-2. **Guided Project Platform Details:**
-   - For Guided Project Platform, were there specific tech stacks supported (e.g. MERN stack, Python/Django)?
-   - Did faculty use it to monitor student mini-project deadlines, or was it primarily a student-led initiative?
-3. **Infosys Internal Work Visibility:**
-   - For your Infosys role, we framed your project as the **Enterprise Analytics & Automated Report Engine** (telemetry aggregation and Agentic AI report generation). Does this description accurately represent your internal focus while maintaining complete company confidentiality?
-4. **Resume PDF File:**
-   - When recruiters click the "Download Resume (PDF)" button, the app opens `/Resume.pdf`. Do you have your updated PDF resume placed in the `public/` folder, or would you like assistance formatting one?
+### 2. Enterprise Analytics & Demand Report Engine (Infosys)
+* **Role:** Specialist Programmer (August 2025 – Present)
+* **Scope:** Internal enterprise Demand Analytics and resource allocation engine.
+* **Key Architecture & Technologies:**
+  * **Frontend:** React (TSX), Recharts, Tailwind CSS.
+  * **Backend:** FastAPI (Async endpoints, Pydantic schemas), PostgreSQL, Docker.
+  * *(Note: LangGraph and Node.js are excluded from this module).*
+* **What Bewin Built:**
+  * **Demand Module:** Designed and implemented 4–5 dynamic interactive analytical views visualizing:
+    1. Talent on the bench (bench counts by skillset and tenure).
+    2. Active incoming project demands requiring engineering talent.
+    3. Allocated talent pending final confirmation.
+    4. Bench utilization vs unassigned headcount.
+  * **Automated Fulfillment Reporting:** Engineered report generation reconciling demands against allocated talent, providing delivery and resource managers with instant visibility into staffing bottlenecks and surplus talent.
+
+### 3. CodeTutor (Lab Management & Automated Evaluation Platform)
+* **Role:** Full-Stack Developer & Department Lead
+* **Scope:** Academic lab evaluation platform deployed in production for an active laboratory section of **70 students** in the Department of Computer Science and Engineering.
+* **Key Architecture & Technologies:**
+  * **Stack:** Django, Django REST Framework, React.js, PostgreSQL, Docker, Tailwind CSS.
+  * **Compilation Engine:** Integrated **Judge0** API for compiling and evaluating student code in **Python, C, C++, and Java** against parameterized test cases.
+  * **Experimental Docker Runner:** Engineered a custom Docker runner engine for executing React and Node.js environments. (Kept experimental and not promoted to production due to complexities in programmatically verifying dynamic client-side rendering).
+  * **Viva Voce Engine:** Automated randomized technical viva questioning modules and scoring rubrics.
+* **Outcomes:** Cut faculty grading time by over 75%; eliminated paper rosters; generated tamper-evident, auditable PDF grade sheets with test-case breakdowns.
+
+### 4. SIH DNS Threat Filter (SIH 2023 National Grand Finale · Team NetOptics)
+* **Authority:** Ministry of Education & AICTE / ISRO Problem Statement SIH1524 (Gujarat Finals).
+* **Key Architecture & Technologies:**
+  * Python, Zeek (Bro) Network Analysis, Unbound DNS Resolver, PCAP parsing, Django REST, Grafana.
+  * In-flight DNS packet capture tapped from recursive Unbound resolvers into Zeek protocol streams.
+  * Machine learning classifier evaluating domain entropy and DGA botnet signatures in real time.
+* **The 2:00 PM Emergency Hackathon Sprint:**
+  * At 2:00 PM (6 hours before the 8:00 PM jury deadline), the model began misclassifying legitimate high-traffic domains (e.g. tagging X.com as adult content).
+  * Rather than risking a 5-hour model retrain, Bewin engineered an asynchronous secondary crawler in Python (`httpx` + `BeautifulSoup`).
+  * The crawler scraped page titles and meta semantics in under 350ms in the background, dynamically overriding false positives without adding latency to DNS resolution. Shipped live before the 8:00 PM deadline to government evaluators.
+* **Outcomes:** National Grand Finale Finalist (Top 0.1% of 44,000 teams across India); 97.4% DGA threat identification accuracy; < 5ms clean query lookup overhead.
+
+### 5. RAG Endpoint Firewall Agent (SIH 2024 College Finalist · Team Night's Watch)
+* **Authority:** Smart India Hackathon 2024 Problem Statement 1741 ("Centralized application-context aware firewall").
+* **Key Architecture & Technologies:**
+  * Python, FastAPI, Hybrid RAG, **Milvus** vector database, Linux `iptables`, React, Docker.
+  * Lightweight endpoint daemon monitoring host socket activity and streaming behavioral anomalies over mTLS.
+  * Centralized orchestrator matches anomalous telemetry against CVE and Mitre ATT&CK patterns indexed in Milvus.
+  * Generates hardened packet-filtering policies applied directly to host Linux kernel tables.
+  * **Deterministic Guardrails:** Hardcoded immutable whitelists for critical system ports (22, 53, 80, 443) preventing automated self-lockout.
+
+### 6. Hardware Forensic Suite (KAVACH 2023 National Grand Finale)
+* **Authority:** AICTE & Ministry of Education, Govt of India (Odisha Finals).
+* **Key Architecture & Technologies:**
+  * Intel NUC portable form factor, Volatility (RAM analysis), Sleuth Kit (Disk forensics), TShark / Wireshark (Network PCAP), Python, Linux.
+  * Self-contained, write-blocked portable hardware appliance capable of field triage on seized media without corrupting volatile memory.
+  * Automated report generator synthesizing memory strings, process trees, and cryptographic SHA-256 hashes into court-admissible PDF dossiers.
+* **Outcomes:** National Grand Finale Finalist (Top 1% of 3,800 national teams across India).
+
+### 7. SocialEye (Tamil Nadu Police Hackathon 2023 · Team T3tra)
+* **Authority:** Tamil Nadu Police Department (Chennai Finals, March 28–29, 2023).
+* **Key Architecture & Technologies:**
+  * Python, OpenCV, YouTube Data API, OSINT tools, FastAPI.
+  * Automated video scraping, frame extraction, sentiment categorization, and visual keyword indexing to assist cybercrime investigators tracking malicious content.
+* **Outcomes:** State Grand Finale Finalist out of 300 competing engineering teams.
+
+---
+
+## 6. Targeted Resume Bullet Points (Tailored by Role)
+
+### For Full-Stack Developer Roles
+* Engineered the core **Demand Module** for Infosys' enterprise resource platform using **React (TSX)**, **FastAPI**, and **PostgreSQL**, delivering 4–5 dynamic **Recharts** analytical views that track bench talent vs. open project demands.
+* Automated enterprise demand-vs-talent fulfillment reporting, reducing manual spreadsheet reconciliation time by over 75% for project and delivery managers.
+* Architected **CodeTutor**, a university lab management platform deployed for 70 students, integrating **Judge0** API for multi-language program verification (Python, C, C++, Java) and interactive viva grading.
+* Developed responsive single-page applications with clean component state, sub-second query caching, and Docker containerization across Linux environments.
+
+### For Backend & Distributed Systems Roles
+* Architected high-throughput asynchronous REST APIs using **FastAPI** and **Django REST Framework**, backed by optimized **PostgreSQL** query pipelines and connection pooling.
+* Designed an AI-driven DNS packet anomaly detection service using **Zeek** protocol tapping and an **Unbound DNS** caching resolver, selected as **National Grand Finale Finalist** out of 44,000 teams in **Smart India Hackathon 2023**.
+* Engineered an asynchronous background web crawler in Python during an emergency 6-hour hackathon sprint to dynamically inspect in-flight web metadata (< 350ms) and eliminate false-positive security sinkholes.
+* Built lightweight Linux endpoint daemon hooks to analyze live socket traffic and apply dynamic **iptables** packet filtering with deterministic whitelist protection against system lockouts.
+
+### For GenAI & LLM Platform Roles
+* Spearheaded **sofie(Chatbot)**, an institutional LLM platform serving **8,000+ university users**, deploying open-source LLaMA models on a private **4x L40S GPU** cluster using **Triton Inference Server** with `vllm_backend`.
+* Implemented **NeMo Guardrails** and custom FastAPI moderation middleware to prevent prompt injection and enforce pedagogical compliance across student coursework.
+* Integrated **Milvus** vector database with sparse lexical search (BM25) and Cross-Encoder re-rankers for hybrid retrieval in a host endpoint security firewall agent (SIH 2024 Finalist).
+* Configured enterprise **Graylog** observability pipelines to monitor token generation latencies, GPU thermals, and guardrail tripwires in production.

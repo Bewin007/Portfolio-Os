@@ -55,7 +55,7 @@ export const RecruiterHero: React.FC<RecruiterHeroProps> = ({
             </span>
             <span className="text-neutral-500">•</span>
             <span className="text-neutral-300">
-              Specialist Programmer (JL5)
+              Specialist Programmer
             </span>
           </div>
 

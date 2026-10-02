@@ -42,7 +42,7 @@ const snapshotData: SnapshotMetric[] = [
   {
     label: 'Infrastructure',
     value: 'Docker · Kubernetes · Nginx',
-    detail: 'Containerization, Traefik, Linux',
+    detail: 'Containerization, Linux OS, CI/CD',
     icon: Container,
     accent: 'text-purple-400',
   },
@@ -72,7 +72,7 @@ export const ProfessionalSnapshot: React.FC = () => {
               <span>Infosys</span>
               <span className="text-neutral-500 font-light hidden sm:inline">—</span>
               <span className="text-emerald-400 font-mono text-xl sm:text-2xl font-semibold">
-                Specialist Programmer (JL5)
+                Specialist Programmer
               </span>
             </h2>
           </div>

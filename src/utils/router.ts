@@ -52,10 +52,11 @@ export function navigateTo(route: AppRoute | string) {
   // Dispatch custom routechange event so all listeners re-render
   window.dispatchEvent(new Event('approutechange'));
 
-  // Scroll to top on page route transition (unless navigating to hash anchor)
-  if (!window.location.hash || window.location.hash.startsWith('#/')) {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
+  // Unconditionally scroll to top of page when navigating between views
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  setTimeout(() => {
+    window.scrollTo(0, 0);
+  }, 50);
 }
 
 /**
