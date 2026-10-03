@@ -40,10 +40,10 @@ export const nowFocusItems: NowItem[] = [
   {
     id: 'now-local-inference-serving',
     category: 'LEARNING',
-    title: 'Local LLM Inference & High-Throughput Serving',
-    subtitle: 'vLLM PagedAttention, GGUF/AWQ & Low-Latency Model Execution',
-    description: 'Deepening hands-on mastery of inference engines and quantization techniques (AWQ, GGUF, vLLM continuous batching) to run private, high-speed open-source models locally with optimized KV-cache memory footprints.',
-    tags: ['vLLM', 'PagedAttention', 'Quantization (AWQ/GGUF)', 'Local LLMs', 'GPU Memory'],
+    title: 'High-Throughput Inference & Multi-GPU Serving',
+    subtitle: 'Triton vllm_backend, Multi-GPU 4x L40S & Continuous Batching',
+    description: 'Hands-on deployment of inference serving engines with Triton Inference Server using vllm_backend, continuous batching, and NeMo Guardrails to serve open-source LLaMA models at campus scale with zero cloud dependencies.',
+    tags: ['Triton Server', 'vllm_backend', 'NeMo Guardrails', '4x L40S', 'Continuous Batching'],
     status: 'RESEARCH',
     progressPercentage: 70
   }
@@ -61,9 +61,9 @@ export const competencyMatrix = {
   buildingWith: [
     { name: 'LangGraph & Agentic Graphs', note: 'Cyclic state machines, reflection loops & tool execution' },
     { name: 'Advanced RAG & Vector Stores', note: 'Hybrid sparse/dense retrieval, chunking & semantic search' },
-    { name: 'vLLM & Continuous Batching', note: 'High-throughput model serving & PagedAttention memory tuning' },
-    { name: 'Triton Inference Server', note: 'Multi-model orchestration, dynamic batching & GPU acceleration' },
-    { name: 'Deterministic Guardrails & Telemetry', note: 'Prompt safety, anti-jailbreak filters & Graylog observability' }
+    { name: 'Triton vllm_backend & Continuous Batching', note: 'High-throughput model serving & multi-GPU cluster orchestration' },
+    { name: 'NeMo Guardrails & Prompt Safety', note: 'Anti-jailbreak filters, policy rails & Graylog observability' },
+    { name: 'Milvus & Vector Retrieval', note: 'Dense vector search, hybrid retrieval & Cross-Encoder re-ranking' }
   ],
   exploring: [
     { name: 'Autonomous Multi-Agent Collaboration', note: 'Coordinated agent teams with specialized personas & toolsets' },
@@ -75,10 +75,10 @@ export const competencyMatrix = {
 
 export const liveTickerItems = [
   'CURRENT ROLE: Specialist Programmer @ Infosys (August 2025 – Present)',
-  'PRIMARY FOCUS: Full Stack Development · Agentic AI Architecture (LangGraph, RAG, vLLM)',
+  'PRIMARY FOCUS: Full Stack Development · Enterprise Analytics · GenAI Infrastructure',
   'AGENTIC RESEARCH: Designing Cyclic State Machines, Multi-Agent Reflection & Autonomous Tool Calling',
-  'RETRIEVAL SYSTEMS: Advanced Hybrid RAG, Sparse/Dense Embeddings & Context Re-Ranking',
-  'INFERENCE EFFICIENCY: vLLM PagedAttention, Continuous Batching & Local Quantized Models',
-  'CORE STACK: Python • React • FastAPI • LangGraph • Django REST • Docker • PostgreSQL',
+  'RETRIEVAL SYSTEMS: Advanced Hybrid RAG, Milvus Dense Embeddings & Context Re-Ranking',
+  'INFERENCE EFFICIENCY: Triton vllm_backend, Multi-GPU 4x L40S Cluster & Continuous Batching',
+  'CORE STACK: Python • React • FastAPI • Django REST • PostgreSQL • Milvus • Docker',
   'ACCOLADES: National Grand Finale Finalist in SIH 2023 & KAVACH 2023'
 ];

@@ -127,7 +127,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
             <div>[003] RAG Endpoint Firewall — Autonomous Rule Agent (SIH 2024, iptables)</div>
             <div>[004] Hardware Forensic Suite — Intel NUC Forensics (Kavach 2023 Finalist)</div>
             <div>[005] CodeTutor — Automated Lab & Viva Management (Django, React, Docker)</div>
-            <div>[006] Enterprise Analytics & Automated Report Engine (Infosys Enterprise Tool)</div>
+            <div>[006] Demand Module — TPD Portal (Infosys Enterprise Project)</div>
           </div>
         );
         break;

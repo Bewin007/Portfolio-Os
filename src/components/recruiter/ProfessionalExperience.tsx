@@ -21,13 +21,13 @@ const experiences: ExperienceItem[] = [
     location: 'Coimbatore / Enterprise Engineering',
     isCurrent: true,
     summary:
-      'Engineered the internal Demand Module focused on real-time talent visualization, bench analytics, and automated demand-vs-talent fulfillment reporting.',
+      'Engineered the Demand Module for the internal TPD (Talent Planning & Deployment) portal, building dynamic Recharts visualizations and backend data APIs based on business team requirements.',
     responsibilities: [
-      'Developed interactive visualization dashboards with Recharts rendering 4–5 dynamic chart views tracking talent bench counts, active demands, unconfirmed allocations, and fulfillment ratios.',
-      'Built automated demand-vs-talent reporting pipelines delivering structured executive breakdowns on assigned personnel and available bench strength.',
-      'Engineered high-performance asynchronous aggregation endpoints and queries using FastAPI and PostgreSQL, adhering to strict enterprise confidentiality standards.',
+      'Developed interactive visualization interfaces using React (TSX) and Recharts to map talent allocation states against open project demands as specified by delivery teams.',
+      'Engineered asynchronous REST aggregation endpoints using FastAPI and PostgreSQL for automated demand-vs-talent fulfillment reporting.',
+      'Collaborated with platform DevOps engineers for CI/CD containerized deployment into production enterprise environments.',
     ],
-    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker', 'Tailwind CSS'],
+    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Tailwind CSS'],
   },
   {
     company: 'Karunya University',

@@ -53,10 +53,10 @@ export function navigateTo(route: AppRoute | string) {
   window.dispatchEvent(new Event('approutechange'));
 
   // Unconditionally scroll to top of page when navigating between views
-  window.scrollTo({ top: 0, behavior: 'smooth' });
+  window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
   setTimeout(() => {
     window.scrollTo(0, 0);
-  }, 50);
+  }, 10);
 }
 
 /**
@@ -68,6 +68,7 @@ export function useAppRouter() {
   useEffect(() => {
     const handleRouteChange = () => {
       setRoute(getCurrentRoute());
+      window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     };
 
     window.addEventListener('popstate', handleRouteChange);

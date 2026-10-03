@@ -70,7 +70,10 @@ export function App() {
 
   // Always scroll to top when switching between recruiter view and story
   useEffect(() => {
-    window.scrollTo(0, 0);
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+    requestAnimationFrame(() => {
+      window.scrollTo(0, 0);
+    });
   }, [viewMode]);
 
   const handleOpenCaseStudyById = (
@@ -85,7 +88,7 @@ export function App() {
   };
 
   const handleToggleViewMode = (newMode: ViewMode) => {
-    window.scrollTo({ top: 0, behavior: 'instant' });
+    window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
     if (newMode === 'story') {
       navigateTo('/story');
     } else {
@@ -118,7 +121,10 @@ export function App() {
       {viewMode === 'recruiter' ? (
         <main className="relative z-10">
           <RecruiterView
-            onSwitchToStory={() => navigateTo('/story')}
+            onSwitchToStory={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              navigateTo('/story');
+            }}
             onOpenCaseStudy={handleOpenCaseStudyById}
           />
         </main>
@@ -128,7 +134,10 @@ export function App() {
           <Hero
             onExploreJourney={handleScrollToJourney}
             onOpenTerminal={() => setIsTerminalOpen(true)}
-            onSwitchToRecruiter={() => navigateTo('/')}
+            onSwitchToRecruiter={() => {
+              window.scrollTo({ top: 0, left: 0, behavior: 'instant' });
+              navigateTo('/');
+            }}
           />
 
           {/* 2. Primary Development Journey Timeline */}
@@ -162,6 +171,7 @@ export function App() {
         project={activeCaseStudy}
         initialTab={caseStudyInitialTab}
         onClose={() => setActiveCaseStudy(null)}
+        viewMode={viewMode}
       />
 
       {/* Interactive Terminal CLI Modal */}

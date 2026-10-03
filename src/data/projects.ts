@@ -353,65 +353,65 @@ export const projectArchive: ProjectCaseStudy[] = [
   {
     id: 'interviewbot-rachel',
     code: '007',
-    title: 'InterviewBot ("Rachel")',
-    tagline: 'AI-Powered Interactive Interview Bot with Fine-Tuned LLM',
+    title: 'HR Bot (Placement Mock Interview Platform)',
+    tagline: 'AI Mock Interview & Behavioral Evaluation Platform (Placement Portal)',
     category: 'AI',
     categories: ['AI', 'WEB'],
     featured: false,
     timelineYear: '2024 / Placement AI System',
-    summary: 'An AI-powered interview preparation bot designed to help students prepare for real-world placement interviews. Built on a fine-tuned open-source Large Language Model that analyzes student resumes and target job descriptions to conduct interactive mock interviews with detailed feedback.',
-    technologies: ['Python', 'Fine-Tuned LLM', 'FastAPI', 'React', 'Tailwind', 'NLP'],
+    summary: 'An AI-driven placement preparation platform developed under the university placement portal. Candidates upload their resume, target job description (JD), and skills. The bot conducts multi-turn behavioral and technical HR interviews using Whisper for speech-to-text, LLaMA served via Triton Inference Server with vllm_backend, NeMo Guardrails, LangChain, and Milvus vector retrieval, culminating in a detailed performance diagnostic report with improvement feedback.',
+    technologies: ['React', 'FastAPI', 'Whisper', 'LLaMA', 'Triton vllm_backend', 'NeMo Guardrails', 'LangChain', 'Milvus', 'PostgreSQL'],
     codeStatus: 'LAB_PROTOTYPE',
     codeStatusNotice: 'Campus Placement Prep Project // Developed to train engineering students for technical placements.',
     collegeContext: 'Created during college campus placement season and deployed to help engineering batchmates practice technical and HR interviews with real-time feedback.',
-    originStory: 'During campus placement season, many students with solid technical and coding skills panicked during verbal technical screenings or struggled to articulate complex system trade-offs under pressure. Mock interview mentors were in short supply, so I built and deployed an interactive bot powered by a fine-tuned open-source LLM that conducts full-length simulated technical viva sessions.',
-    whyBuilt: 'Built to provide unlimited, personalized mock interviews where an AI analyzes the candidate\'s actual resume and provides constructive feedback on answer depth, communication, and confidence.',
+    originStory: 'During campus placement season, many students with solid technical skills lacked confidence in verbal HR screenings or struggled to articulate their projects effectively. Mock interview mentors were limited, so our team built this interactive bot under the placement portal where an AI ingests the student’s resume, skills, and target job description to conduct simulated HR interviews.',
+    whyBuilt: 'Built to provide repeatable, objective mock interview simulations where the system analyzes candidate responses and provides a detailed diagnostic report on performance and areas to improve.',
     interestingFacts: [
-      'Deployed on campus infrastructure for student batchmates preparing for product and service company interviews.',
-      'Fine-tuned an open-source LLM on hundreds of real software engineering interview question-and-answer pairs to probe deeper rather than accepting surface-level answers.',
-      'Named "Rachel" after an encouraging, intelligent mentor persona.',
-      'Generates a comprehensive post-interview diagnostic scorecard rating communication clarity, technical accuracy, and improvement areas.'
+      'Students provide their resume, target job description (JD), and technical skills to generate tailored HR questions.',
+      'Integrated Whisper for candidate speech-to-text paired with LLaMA models served on Triton Inference Server with vllm_backend and NeMo Guardrails for question generation and reasoning.',
+      'Employed LangChain and Milvus vector search to ground evaluation rubrics and criteria against candidate background.',
+      'Generates a comprehensive post-interview diagnostic scorecard evaluating performance and delivering actionable tips on how to improve.',
+      'The team also explored adding speech-to-text with live video avatar generation, but the video synthesis consumed too much GPU memory for the available hardware at the time and was subsequently scrapped.'
     ],
     caseStudy: {
-      problem: 'College students lack access to personalized, repeatable technical mock interviews before critical company hiring drives.',
-      approach: 'Engineered a full-stack interactive mock interview platform where an open-source LLM ingests candidate resume PDFs and target job descriptions, generates dynamic sequential questions, and evaluates responses.',
-      architectureDescription: 'Candidate uploads their resume and selects a target role. FastAPI parses resume text and feeds it into the fine-tuned LLM context. The bot conducts a multi-turn conversation, dynamically adapting follow-up questions based on the candidate’s answers, and computes a final score breakdown.',
+      problem: 'College students lack access to personalized, repeatable technical and HR mock interviews before critical hiring drives.',
+      approach: 'Engineered a full-stack platform using Whisper, Triton-served LLaMA models with NeMo Guardrails, LangChain, Milvus, and FastAPI to conduct multi-turn interviews and generate detailed diagnostic reports.',
+      architectureDescription: 'Candidate uploads their resume, target JD, and skills. Audio is transcribed via Whisper. FastAPI feeds context into LangChain and Milvus for rubric retrieval. LLaMA generates adaptive follow-up questions, and the system synthesizes a comprehensive final performance report.',
       architectureNodes: [
-        { id: 'candidate', name: 'Candidate Browser UI', type: 'client', description: 'Speech/text interactive interview interface' },
-        { id: 'api', name: 'FastAPI Backend', type: 'service', description: 'Session coordinator and resume parser' },
-        { id: 'llm', name: 'Fine-Tuned Interview LLM', type: 'ai', description: 'Dynamic questioner and answer evaluator' },
-        { id: 'feedback', name: 'Scoring & Feedback Engine', type: 'service', description: 'Generates detailed performance reports' }
+        { id: 'candidate', name: 'Candidate UI (React)', type: 'client', description: 'Speech & text interface for candidate answers' },
+        { id: 'whisper', name: 'Whisper STT Service', type: 'service', description: 'Converts candidate speech to text' },
+        { id: 'api', name: 'FastAPI Backend', type: 'gateway', description: 'Session coordinator and rubric pipeline' },
+        { id: 'vector_db', name: 'Milvus Vector DB', type: 'database', description: 'Indexes interview rubrics & JD competencies' },
+        { id: 'llm', name: 'LLaMA (Triton vllm_backend)', type: 'ai', description: 'Reasoning & question synthesis with NeMo Guardrails' },
+        { id: 'feedback', name: 'Performance Reporter', type: 'service', description: 'Synthesizes diagnostic scorecard and tips' }
       ],
       architectureFlows: [
-        { from: 'candidate', to: 'api', label: 'Resume & Job Description Upload' },
-        { from: 'api', to: 'llm', label: 'Synthesize Personalized Interview Persona' },
-        { from: 'llm', to: 'candidate', label: 'Sequential Interview Questions' },
-        { from: 'candidate', to: 'llm', label: 'Verbal / Typed Answers' },
-        { from: 'llm', to: 'feedback', label: 'Evaluation Metrics & Scorecard' }
+        { from: 'candidate', to: 'whisper', label: 'Spoken Answers / Audio' },
+        { from: 'whisper', to: 'api', label: 'Transcribed Text Stream' },
+        { from: 'api', to: 'vector_db', label: 'Retrieve Relevant Rubric Embeddings' },
+        { from: 'api', to: 'llm', label: 'Contextual Query + Guardrails' },
+        { from: 'llm', to: 'candidate', label: 'Adaptive HR Follow-Up Question' },
+        { from: 'llm', to: 'feedback', label: 'Diagnostic Scorecard & Recommendations' }
       ],
       challenges: [
-        'Keeping interview questions adaptive rather than sounding like a rigid static quiz script.',
-        'Minimizing latency between candidate answers and next question generation.',
-        'Providing gentle yet rigorous feedback that genuinely prepares students for tough technical interviews.'
+        'Evaluating audio transcription latency to maintain a natural interview conversational cadence.',
+        'High compute requirements: live video avatar generation proved too resource-intensive for available hardware and was eliminated in favor of responsive voice/text interactions.',
+        'Balancing strict guardrail evaluation without making questions sound robotic.'
       ],
       results: [
-        { metric: '500+', label: 'Mock Interview Sessions Simulated' },
-        { metric: '90%', label: 'Student Confidence Improvement Score' },
-        { metric: 'Dynamic', label: 'Customized Questions per Resume' }
+        { metric: 'Comprehensive', label: 'Performance & Improvement Reports' },
+        { metric: 'Multi-Modal', label: 'Whisper STT + LLaMA Reasoning' },
+        { metric: 'Tailored', label: 'Customized to Resume, JD & Skills' }
       ],
-      whatILearned: 'Conversational state management in LLMs requires tight context window pruning to prevent the bot from repeating previous topics.',
+      whatILearned: 'Multi-modal AI pipelines must prioritize hardware constraints. Scrapping heavy video generation in favor of fast speech-to-text and low-latency LLM streaming produced a far more usable interview tool.',
       decisionLog: [
         {
-          question: 'Why fine-tune an open-source model?',
-          answer: 'Fine-tuning specifically on interview dialogues taught the model when to probe deeper with follow-up questions rather than simply accepting surface answers.'
+          question: 'Why Triton with vllm_backend for HR Bot?',
+          answer: 'Provides reliable multi-user concurrent batching and low-latency token streaming for multi-turn interview interactions with NeMo Guardrails protection.'
         },
         {
-          question: 'What trade-offs were accepted?',
-          answer: 'Evaluation scorecards are grounded in specific answer criteria rubrics to ensure objective grading.'
-        },
-        {
-          question: 'Why did the first approach fail?',
-          answer: 'Zero-shot generic prompts tended to be overly polite and gave 10/10 scores even for completely incorrect technical answers.'
+          question: 'Why was live video generation scrapped?',
+          answer: 'Real-time video synthesis consumed disproportionate VRAM and GPU compute that bottlenecked the inference pipeline on the available cluster.'
         }
       ]
     }
@@ -419,53 +419,58 @@ export const projectArchive: ProjectCaseStudy[] = [
   {
     id: 'infosys-dashboard-reporter',
     code: '006',
-    title: 'Enterprise Analytics & Demand Report Engine',
-    tagline: 'Enterprise Demand vs. Bench Visual Analytics & Report Generation Engine',
+    title: 'Demand Module (TPD Portal)',
+    tagline: 'Enterprise Talent Demand & Allocation Visual Module',
     category: 'WEB',
     categories: ['WEB', 'BACKEND'],
     featured: true,
     timelineYear: 'Infosys (2025 — Present)',
-    summary: 'Internal enterprise Demand Analytics and resource allocation engine built at Infosys using React (TSX), FastAPI, Recharts, and PostgreSQL. Features 4–5 dynamic analytical views visualizing bench strength, active project demands, and unconfirmed talent allocations with automated demand-vs-talent fulfillment report generation.',
-    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker'],
+    summary: 'Internal enterprise module developed for the TPD (Talent Planning & Deployment) portal at Infosys using React (TSX), FastAPI, Recharts, and PostgreSQL. Built in response to business and delivery team specifications to visualize talent allocation states against open demands with automated fulfillment reports.',
+    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL'],
     codeStatus: 'PROPRIETARY',
     codeStatusNotice: 'Infosys Enterprise Internal Project // Proprietary Intellectual Property.',
-    collegeContext: 'Architected as a Specialist Programmer at Infosys within the internal enterprise resource management ecosystem.',
-    originStory: 'Resource managers and delivery leads spent extensive manual hours reconciling talent bench availability against active project skill requirements and unconfirmed allocations. I engineered the Demand Module: a unified visualization and report engine that dynamically charts bench capacity versus open demands and synthesizes comprehensive demand-vs-talent allocation reports.',
-    whyBuilt: 'Built to give leadership instant visual clarity into resource allocation and automate demand fulfillment reports comparing assigned talent versus unallocated bench pools.',
+    collegeContext: 'Engineered as a Specialist Programmer at Infosys within the internal enterprise TPD portal.',
+    originStory: 'The feature was requested by business and delivery teams who needed clearer visual tracking of open skill demands and talent allocation states. I was tasked with engineering the module: creating dynamic charts to compare demand allocations and synthesizing demand-vs-talent fulfillment reports.',
+    whyBuilt: 'Built to provide internal teams with visual clarity into resource allocation and automate demand fulfillment reports comparing assigned talent against open demand pools.',
     interestingFacts: [
-      'Engineered the core Demand Module with 4–5 dynamic Recharts views visualizing bench talent vs. open project demands, talent allocation status, and unconfirmed placements.',
-      'Built automated demand-vs-talent fulfillment reporting: generates detailed breakdowns of assigned talent per demand vs unassigned bench resources.',
-      'Developed with React (TSX) and FastAPI async endpoints backed by optimized PostgreSQL aggregation queries, containerized with Docker.'
+      'Engineered the core Demand Module with dynamic Recharts views visualizing bench talent vs. open project demands, talent allocation status, and unconfirmed placements.',
+      'Built automated demand-vs-talent fulfillment reporting: generates structured breakdowns comparing assigned talent per demand against open bench resources.',
+      'Developed with React (TSX) and FastAPI async endpoints backed by PostgreSQL aggregation queries; deployment was managed by the platform DevOps team.'
     ],
     caseStudy: {
-      problem: 'Talent allocation data was scattered across disconnected spreadsheets, making it slow and error-prone to reconcile bench availability with incoming project demands.',
-      approach: 'Built a full-stack analytics engine with React (TSX), Recharts, FastAPI, and PostgreSQL to visualize resource allocation metrics and generate automated demand fulfillment reports.',
-      architectureDescription: 'React (TSX) frontend renders 4–5 real-time Recharts visualizations showing bench counts, active demands, and pending confirmations. FastAPI backend runs high-performance SQL aggregation queries against PostgreSQL to compute allocations and generate exportable reports.',
+      problem: 'Talent allocation data required clearer visualization and automated reporting to help teams track bench availability against incoming project demands.',
+      approach: 'Built a full-stack module with React (TSX), Recharts, FastAPI, and PostgreSQL to visualize resource allocation metrics and generate automated demand fulfillment reports.',
+      architectureDescription: 'React (TSX) frontend renders dynamic Recharts visualizations showing bench allocations, active demands, and pending confirmations. FastAPI backend runs aggregation queries against PostgreSQL to compute allocations and generate exportable reports. Deployed to production by the platform DevOps team.',
       architectureNodes: [
-        { id: 'client', name: 'Demand Analytics UI (React TSX)', type: 'client', description: 'Interactive Recharts views for bench, demand & allocation metrics' },
-        { id: 'api', name: 'FastAPI Service', type: 'gateway', description: 'Asynchronous aggregation endpoints and report generator' },
+        { id: 'client', name: 'Demand Module UI (React TSX)', type: 'client', description: 'Interactive Recharts views for demand & allocation tracking' },
+        { id: 'api', name: 'FastAPI Backend', type: 'gateway', description: 'Asynchronous aggregation endpoints and report generator' },
         { id: 'db', name: 'PostgreSQL Database', type: 'database', description: 'Talent profiles, project demands, and allocation mappings' }
       ],
       architectureFlows: [
-        { from: 'client', to: 'api', label: 'Filter Demands / Bench Criteria' },
-        { from: 'api', to: 'db', label: 'Run SQL Aggregations & Joins' },
-        { from: 'db', to: 'api', label: 'Talent & Demand Allocations' },
-        { from: 'api', to: 'client', label: 'Stream Recharts Data & Fulfillment Reports' }
+        { from: 'client', to: 'api', label: 'Filter Demands / Allocation Criteria' },
+        { from: 'api', to: 'db', label: 'Run SQL Aggregations & Queries' },
+        { from: 'db', to: 'api', label: 'Talent & Demand Allocation Data' },
+        { from: 'api', to: 'client', label: 'Render Recharts & Fulfillment Reports' }
       ],
       challenges: [
-        'Designing multi-dimensional SQL aggregation queries across dynamic allocation states without backend latency spikes.',
-        'Rendering responsive, multi-series Recharts views on high-density displays for resource planning sessions.'
+        'Designing SQL aggregation queries across dynamic allocation states adhering to internal data schemas.',
+        'Rendering clean, responsive Recharts views for internal operational reviews.',
+        'Integrating with existing TPD portal authentication and backend workflows.'
       ],
       results: [
-        { metric: '4–5 Views', label: 'Dynamic Bench & Demand Recharts Visuals' },
-        { metric: '< 200ms', label: 'Aggregation Query Latency' },
-        { metric: 'Automated', label: 'Demand vs Talent Fulfillment Reports' }
+        { metric: 'Production', label: 'TPD Enterprise Portal' },
+        { metric: 'Full-Stack', label: 'React TSX + FastAPI' },
+        { metric: 'Automated', label: 'Fulfillment Report Engine' }
       ],
-      whatILearned: 'Clear data visualization combined with fast backend aggregation turns administrative spreadsheet headaches into instant operational decisions.',
+      whatILearned: 'Clear frontend visualization combined with structured backend aggregation turns complex operational workflows into intuitive tools for internal teams.',
       decisionLog: [
         {
           question: 'Why FastAPI with PostgreSQL for the Demand Module?',
-          answer: 'FastAPI provides high-speed asynchronous endpoint handlers and strict Pydantic data validation for complex resource schemas, while PostgreSQL indexes enable sub-second aggregations across thousands of employee and demand records.'
+          answer: 'FastAPI provides high-speed asynchronous endpoint handlers and clean Pydantic data validation for resource schemas, while PostgreSQL indexes support reliable aggregations across records.'
+        },
+        {
+          question: 'Who handled deployment?',
+          answer: 'The frontend and backend services were handed off to the enterprise DevOps team, who integrated and deployed the module via containerized production CI/CD pipelines.'
         }
       ]
     }
@@ -687,18 +692,18 @@ export const projectArchive: ProjectCaseStudy[] = [
   {
     id: 'youtube-sentiment-analysis',
     code: '012',
-    title: 'YouTube Comment Sentiment Analyzer',
-    tagline: 'NLP Community Feedback Miner & Video Polarity Classifier',
+    title: 'YouTube Video & Comment Sentiment Analyzer',
+    tagline: 'SocialEye Video Frame & Viewer Comment Intelligence Engine',
     category: 'AI',
     categories: ['AI', 'WEB'],
     featured: false,
-    timelineYear: '2022 / NLP Project',
-    summary: 'Natural Language Processing pipeline that harvests thousands of viewer comments using the YouTube Data API, cleans text, and runs sentiment polarity and emotional classification to visualize audience reception and controversy trends.',
-    technologies: ['Python', 'NLP', 'YouTube Data API', 'Flask', 'Chart.js'],
+    timelineYear: '2023 / Video & NLP Forensics',
+    summary: 'Part of the SocialEye forensic analysis toolkit built for the Tamil Nadu Police Hackathon. Analyzes both YouTube video frames for inappropriate visual content and comments/audio transcripts for profanity, sentiment polarity, and hate speech using NLP and computer vision.',
+    technologies: ['Python', 'OpenCV', 'NLP', 'YouTube Data API', 'React', 'FastAPI'],
     codeStatus: 'LAB_PROTOTYPE',
-    codeStatusNotice: 'NLP Exploratory Artifact // Audience Perception Mining.',
-    collegeContext: 'Built during Natural Language Processing coursework to explore real-world social sentiment and sarcasm detection.',
-    originStory: 'When a new technical product or tutorial video is released, reading thousands of comments to gauge community consensus is impossible. I wanted a tool where you paste a YouTube URL and immediately get an executive sentiment dashboard: positive vs negative breakdown, top praised features, and common user complaints.',
+    codeStatusNotice: 'SocialEye Forensic Component // Video & Audience Intelligence.',
+    collegeContext: 'Built as part of Project SocialEye for the Tamil Nadu Police Hackathon 2023 (State Grand Finale Finalist, Team T3tra).',
+    originStory: 'Cybercrime investigators require comprehensive intelligence when inspecting potentially harmful YouTube content. Rather than inspecting comments or video in isolation, we designed this pipeline to analyze video frames for visual impropriety while simultaneously mining speech transcripts and viewer comment threads for profanity and sentiment polarity.',
     whyBuilt: 'Built to automate social listening and evaluate how audiences react to controversial tech releases.',
     interestingFacts: [
       'Engineered custom text preprocessing to strip emoji patterns, handle slang, and normalize punctuation emphasis.',

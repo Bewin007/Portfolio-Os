@@ -69,7 +69,7 @@ const systemLayers: SystemLayer[] = [
     name: 'AI & Agent Workflows',
     role: 'Autonomous Workflows & Inference',
     tech: ['Agent State Machines', 'Vector Retrieval', 'Model Serving'],
-    protocol: 'PagedAttention',
+    protocol: 'Triton vllm_backend',
     metric: '',
     icon: Bot,
     accentColor: 'text-purple-400',
