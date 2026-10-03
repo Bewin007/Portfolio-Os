@@ -309,10 +309,10 @@ timeline
 
 ---
 
-### 11. HR Bot (Placement Mock Interview Platform)
+### 11. Rachel(Interview Bot)
 * **Timeline:** 2024
 * **Role:** Lead Developer / Placement Team
-* **Scope:** University Placement Preparation Portal (Mock Interview & Behavioral Evaluation Module).
+* **Scope:** University Placement Preparation Portal (Mock Interview & Behavioral Evaluation Platform).
 * **Tech Stack:** React.js, FastAPI, Whisper (Speech-to-Text), LLaMA models, Triton Inference Server with `vllm_backend`, NeMo Guardrails, LangChain, Milvus (Vector DB), PostgreSQL.
 * **Architecture & Details:**
   * Developed under the university placement portal to train students for campus placement screenings and behavioral HR interviews.
@@ -422,6 +422,6 @@ timeline
 * **Private Campus AI Serving:** Spearheaded **sofie(Chatbot)**, an institutional AI platform serving **8,000+ university students and faculty**, deploying open-source LLaMA models on a private **4x L40S GPU** cluster using **Triton Inference Server** with `vllm_backend` (`triton-inference-server/vllm_backend`).
 * **AI Safety & Policy Rails:** Integrated **NeMo Guardrails** and FastAPI middleware to prevent prompt injections, enforce university curriculum compliance, and prevent raw assignment code generation.
 * **Automated Hackathon Evaluation:** Deployed LLM pipelines to evaluate and verify technical procedure manuals for **500+ student teams** participating in internal college-level Smart India Hackathon selections.
-* **HR Mock Interview Platform:** Architected **HR Bot**, an interactive mock interview platform utilizing **Whisper** speech-to-text, **LLaMA** served on **Triton Inference Server with `vllm_backend`**, **NeMo Guardrails**, **LangChain**, and **Milvus** vector retrieval to generate tailored behavioral questions and automated performance diagnostic reports.
+* **Rachel(Interview Bot):** Architected **Rachel(Interview Bot)**, an interactive mock interview platform utilizing **Whisper** speech-to-text, **LLaMA** served on **Triton Inference Server with `vllm_backend`**, **NeMo Guardrails**, **LangChain**, and **Milvus** vector retrieval to generate tailored behavioral questions and automated performance diagnostic reports.
 * **Hybrid Retrieval (RAG):** Implemented hybrid semantic retrieval combining sparse BM25 search with dense vector embeddings in **Milvus** and Cross-Encoder re-rankers for an autonomous application-context aware firewall agent (SIH 2024 Finalist).
 * **Observability:** Centralized **Graylog** telemetry pipelines monitoring token generation latencies, GPU temperatures, and guardrail tripwires in production.
