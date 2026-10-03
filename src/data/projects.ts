@@ -353,7 +353,7 @@ export const projectArchive: ProjectCaseStudy[] = [
   {
     id: 'interviewbot-rachel',
     code: '007',
-    title: 'HR Bot (Placement Mock Interview Platform)',
+    title: 'Rachel(Interview Bot)',
     tagline: 'AI Mock Interview & Behavioral Evaluation Platform (Placement Portal)',
     category: 'AI',
     categories: ['AI', 'WEB'],
@@ -406,7 +406,7 @@ export const projectArchive: ProjectCaseStudy[] = [
       whatILearned: 'Multi-modal AI pipelines must prioritize hardware constraints. Scrapping heavy video generation in favor of fast speech-to-text and low-latency LLM streaming produced a far more usable interview tool.',
       decisionLog: [
         {
-          question: 'Why Triton with vllm_backend for HR Bot?',
+          question: 'Why Triton with vllm_backend for Rachel(Interview Bot)?',
           answer: 'Provides reliable multi-user concurrent batching and low-latency token streaming for multi-turn interview interactions with NeMo Guardrails protection.'
         },
         {

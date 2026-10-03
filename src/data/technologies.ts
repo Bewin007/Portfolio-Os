@@ -322,7 +322,7 @@ export const technologyEras: EraTechMilestone[] = [
         introducedIn: '2025',
         proficiencyLevel: 'Building With',
         icon: '🎯',
-        description: 'Custom fine-tuning open-source LLMs for interview preparation ("Rachel") and domain evaluation.'
+        description: 'Custom fine-tuning open-source LLMs for interview preparation ("Rachel(Interview Bot)") and domain evaluation.'
       },
       {
         name: 'ECC (Elliptic-Curve Cryptography)',

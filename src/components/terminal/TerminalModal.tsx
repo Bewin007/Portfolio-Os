@@ -128,6 +128,7 @@ export const TerminalModal: React.FC<TerminalModalProps> = ({
             <div>[004] Hardware Forensic Suite — Intel NUC Forensics (Kavach 2023 Finalist)</div>
             <div>[005] CodeTutor — Automated Lab & Viva Management (Django, React, Docker)</div>
             <div>[006] Demand Module — TPD Portal (Infosys Enterprise Project)</div>
+            <div>[007] Rachel(Interview Bot) — AI Mock Interview Platform (Whisper, LLaMA, Milvus)</div>
           </div>
         );
         break;
