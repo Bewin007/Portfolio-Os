@@ -133,9 +133,9 @@ const aiConcepts: AiConcept[] = [
     subtitle: 'Pydantic Schemas & Sandboxed Execution',
     description:
       'Enforcing strict typing on probabilistic AI systems. Connecting LLM tool-calling APIs with deterministic Pydantic schema validation, sandboxed execution containers, and automated fallback policies to eliminate unsafe system commands.',
-    keyTech: ['Structured Outputs', 'Guardrails AI', 'Docker Sandbox', 'Pydantic'],
-    realWorldProject: 'CodeTutor & Firewall Agent — Sandboxed code execution and deterministic port-whitelist guarantees.',
-    projectBadge: 'Production Sandbox',
+    keyTech: ['Structured Outputs', 'NeMo Guardrails', 'Judge0 Engine', 'Pydantic'],
+    realWorldProject: 'CodeTutor & Firewall Agent — Multi-language evaluation via Judge0 (Python, C, C++, Java) and deterministic port-whitelist guarantees.',
+    projectBadge: 'Evaluator & Rails',
     icon: ShieldCheck,
     accentColor: 'text-cyan-400',
   },

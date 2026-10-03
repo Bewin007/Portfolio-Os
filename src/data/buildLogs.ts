@@ -12,10 +12,10 @@ export const buildLogEntries: BuildLogEntry[] = [
     id: 'log-01',
     timestamp: '[2024.12]',
     category: 'PRODUCTION',
-    title: 'Deployed sofie(Chatbot) Campus AI on Triton + vLLM',
-    summary: 'Orchestrated the official private ChatGPT-style platform for Karunya University using Open WebUI, Triton Inference Server, and vLLM PagedAttention.',
-    details: 'Configured continuous batching to maximize multi-user concurrency on university GPU hardware. Added Guardrails AI for academic integrity moderation and Graylog for real-time prompt telemetry.',
-    tags: ['vLLM', 'Triton Server', 'FastAPI', 'Open WebUI', 'AI Platforms']
+    title: 'Deployed sofie(Chatbot) Campus AI on Triton + vLLM Backend',
+    summary: 'Orchestrated the official private ChatGPT-style platform for Karunya University using Open WebUI, Triton Inference Server with vllm_backend, and NeMo Guardrails on 4x L40S GPUs.',
+    details: 'Configured continuous batching to maximize multi-user concurrency on university GPU hardware. Added NeMo Guardrails for academic integrity moderation and Graylog for real-time prompt telemetry.',
+    tags: ['Triton vllm_backend', 'NeMo Guardrails', '4x L40S', 'FastAPI', 'Open WebUI']
   },
   {
     id: 'log-02',
@@ -31,9 +31,9 @@ export const buildLogEntries: BuildLogEntry[] = [
     timestamp: '[2024.06]',
     category: 'ARCHITECTURE',
     title: 'Engineered CodeTutor Automated Lab & Viva Platform',
-    summary: 'Constructed an end-to-end laboratory evaluation platform in Django REST and React with automated code execution verification.',
-    details: 'Eliminated manual grading on 60+ lab screens with Docker containerized test execution sandboxes and randomized viva questions, cutting faculty evaluation paperwork by 75%.',
-    tags: ['Django REST', 'React', 'Docker', 'PostgreSQL', 'Education']
+    summary: 'Constructed an end-to-end laboratory evaluation platform in Django REST and React with automated code execution verification via Judge0.',
+    details: 'Eliminated manual grading across lab batches with Judge0 multi-language compilation (Python, C, C++, Java) and randomized viva questions, cutting faculty evaluation paperwork by 75%.',
+    tags: ['Judge0', 'Django REST', 'React', 'PostgreSQL', 'Education']
   },
   {
     id: 'log-04',

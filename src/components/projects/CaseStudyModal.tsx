@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { motion, AnimatePresence } from 'framer-motion';
-import { ProjectCaseStudy } from '../../types';
+import { ProjectCaseStudy, ViewMode } from '../../types';
 import { sounds } from '../../utils/audio';
 import { 
   X, 
@@ -28,9 +28,15 @@ interface CaseStudyModalProps {
   project: ProjectCaseStudy | null;
   onClose: () => void;
   initialTab?: 'origin' | 'architecture' | 'decisions' | 'metrics';
+  viewMode?: ViewMode;
 }
 
-export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose, initialTab = 'origin' }) => {
+export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ 
+  project, 
+  onClose, 
+  initialTab = 'origin',
+  viewMode = 'story'
+}) => {
   const [activeTab, setActiveTab] = useState<'origin' | 'architecture' | 'decisions' | 'metrics'>(initialTab);
 
   // Sync initialTab when project or initialTab changes
@@ -131,9 +137,15 @@ export const CaseStudyModal: React.FC<CaseStudyModalProps> = ({ project, onClose
           {/* Top Header Bar */}
           <div className="px-6 py-4 border-b border-white/10 flex items-center justify-between bg-neutral-900/50">
             <div className="flex items-center gap-3">
-              <span className="px-2.5 py-1 rounded bg-neutral-800 text-cyan-400 font-mono text-xs font-bold border border-cyan-500/30">
-                CASE #{project.code}
-              </span>
+              {viewMode === 'recruiter' ? (
+                <span className="px-2.5 py-1 rounded bg-neutral-800 text-cyan-400 font-mono text-xs font-bold border border-cyan-500/30">
+                  {project.category}
+                </span>
+              ) : (
+                <span className="px-2.5 py-1 rounded bg-neutral-800 text-cyan-400 font-mono text-xs font-bold border border-cyan-500/30">
+                  CASE #{project.code}
+                </span>
+              )}
               <div>
                 <div className="flex items-center gap-2">
                   <h3 className="font-display font-bold text-lg text-white">

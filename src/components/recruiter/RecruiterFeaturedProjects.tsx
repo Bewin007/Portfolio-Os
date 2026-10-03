@@ -47,14 +47,14 @@ const flagshipConfigs: Record<string, FlagshipConfig> = {
   },
   'infosys-dashboard-reporter': {
     id: 'infosys-dashboard-reporter',
-    displayTitle: 'Enterprise Analytics & Automated Report Engine',
-    resultOpening: 'Internal enterprise Demand Module at Infosys, delivering interactive Recharts visualizations and automated talent-allocation reports.',
+    displayTitle: 'Demand Module (TPD Portal)',
+    resultOpening: 'Internal enterprise module developed for Infosys TPD portal using React (TSX), FastAPI, Recharts, and PostgreSQL, built to business team specifications with DevOps deployment.',
     keyMetrics: [
-      { value: 'Demand Module', label: 'Bench & Allocation' },
-      { value: 'Dynamic Visuals', label: 'Recharts Breakdown' },
-      { value: 'Production', label: 'Infosys Enterprise Tool' },
+      { value: 'TPD Portal', label: 'Enterprise Platform' },
+      { value: 'Full-Stack', label: 'React + FastAPI' },
+      { value: 'Production', label: 'DevOps Deployed' },
     ],
-    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker'],
+    technologies: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL'],
   },
 };
 
@@ -170,7 +170,7 @@ export const RecruiterFeaturedProjects: React.FC<RecruiterFeaturedProjectsProps>
                   className="w-full py-2.5 px-4 rounded-xl bg-white hover:bg-neutral-200 text-neutral-950 font-mono text-xs font-bold transition-all flex items-center justify-center gap-2 group/btn shadow-md active:scale-[0.98]"
                 >
                   <FileText className="w-3.5 h-3.5" />
-                  <span>View Case Study</span>
+                  <span>View Project Details</span>
                   <ArrowRight className="w-3 h-3 group-hover/btn:translate-x-1 transition-transform" />
                 </button>
 

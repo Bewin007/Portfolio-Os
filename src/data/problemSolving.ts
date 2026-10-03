@@ -65,9 +65,9 @@ export const engineeringProcessData: EngineeringProcessData = {
           detail: 'Unbound DNS caching resolver tapped by Zeek protocol inspection and async Python queues to prevent socket buffer packet drops.',
         },
         {
-          project: 'Infosys Demand Analytics Engine',
-          badge: 'Enterprise Analytics',
-          detail: 'Asynchronous FastAPI aggregation endpoints with PostgreSQL query pooling driving dynamic Recharts visualizations of bench vs. demand talent allocation.',
+          project: 'Demand Module (TPD Portal)',
+          badge: 'TPD Portal',
+          detail: 'Asynchronous FastAPI aggregation endpoints with PostgreSQL queries driving dynamic Recharts visualizations of talent allocation states against open demands.',
         },
       ],
       keyTakeaway: 'Decoupled architectures allow individual components to fail or scale independently without taking down the platform.',

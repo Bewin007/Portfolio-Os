@@ -174,29 +174,29 @@ export const journeyChapters: TimelineChapter[] = [
   {
     id: 'now-chapter',
     year: '2025 – PRESENT',
-    phase: 'INDUSTRY & ENTERPRISE ANALYTICS',
+    phase: 'INDUSTRY & ENTERPRISE ENGINEERING',
     title: 'Specialist Programmer at Infosys',
-    subtitle: 'Enterprise Demand Module & Bench Analytics Engine',
+    subtitle: 'TPD Portal Demand Module & Reporting Engine',
     era: 'August 2025 — PRESENT [Infosys Specialist Programmer]',
-    story: `Graduated with B.Tech Computer Science and joined Infosys as a Specialist Programmer in August 2025. Engineered the core Demand Module within the internal enterprise resource management platform using React (TSX), FastAPI, Recharts, and PostgreSQL. Architected 4–5 interactive analytical views visualizing talent on bench, incoming project demands, and unconfirmed allocations, while automating the generation of comprehensive demand-vs-talent fulfillment reports. Focused on building high-performance, resilient enterprise systems.`,
+    story: `Graduated with B.Tech Computer Science and joined Infosys as a Specialist Programmer in August 2025. Developed the Demand Module for the internal TPD (Talent Planning & Deployment) portal based on requirements from business and delivery teams. Built the frontend using React (TSX) and Recharts for visualizing talent allocations against open skill demands, alongside FastAPI and PostgreSQL backend aggregation APIs for automated demand fulfillment reports. Deployment was coordinated with the platform DevOps team.`,
     learningFocus: [
       'Enterprise Demand & Resource Allocation Modeling (Infosys Specialist Programmer)',
       'Interactive Analytics Engineering with React (TSX) and Recharts',
       'High-Performance Asynchronous REST Endpoints with FastAPI & PostgreSQL',
-      'Automated Enterprise Report Synthesis & Data Reconciliation',
-      'Production Docker Containerization & Scalable Backend Architectures'
+      'Automated Demand Fulfillment Reporting & Data Reconciliation',
+      'Collaborative Enterprise Workflows with Platform DevOps Teams'
     ],
     whatWasBuilt: [
       {
-        name: 'Demand Module & Bench Analytics Engine',
-        description: 'Engineered 4–5 dynamic Recharts views visualizing bench talent vs open demands and unconfirmed allocations with automated fulfillment reports.',
-        tech: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker'],
+        name: 'Demand Module (TPD Portal)',
+        description: 'Engineered dynamic Recharts views visualizing talent allocations against open demands with automated fulfillment reports.',
+        tech: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL'],
         projectId: 'infosys-dashboard-reporter'
       }
     ],
-    technologiesEncountered: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Docker', 'Python', 'Tailwind CSS'],
-    keyChallenges: 'Designing multi-dimensional SQL aggregation queries across high-velocity allocation states while ensuring instantaneous sub-second chart updates.',
-    lessonLearned: 'The most impactful engineering work transforms complex operational friction into intuitive, data-driven decisions that save teams hundreds of manual hours.',
+    technologiesEncountered: ['React (TSX)', 'FastAPI', 'Recharts', 'PostgreSQL', 'Python', 'Tailwind CSS'],
+    keyChallenges: 'Designing clean SQL aggregation queries across dynamic allocation states adhering strictly to internal enterprise schemas.',
+    lessonLearned: 'Building software for enterprise operations requires listening closely to business stakeholders and turning complex workflows into intuitive visual tools.',
     visualTheme: {
       accentColor: '#10b981',
       badgeBg: 'bg-emerald-500/10 text-emerald-400 border-emerald-500/20',
